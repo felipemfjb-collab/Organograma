@@ -1122,11 +1122,12 @@ function exportDataJSON() {
     alert("Importe uma base primeiro.");
     return;
   }
-  var json = JSON.stringify(orgData, null, 2);
-  var blob = new Blob([json], {type: "application/json;charset=utf-8"});
+  // Export as data.js (script file) to avoid CORS issues on GitHub Pages
+  var content = "window.ORG_DATA = " + JSON.stringify(orgData) + ";";
+  var blob = new Blob([content], {type: "application/javascript;charset=utf-8"});
   var url  = URL.createObjectURL(blob);
   var a    = document.createElement("a");
-  a.href = url; a.download = "data.json"; a.click();
+  a.href = url; a.download = "data.js"; a.click();
   URL.revokeObjectURL(url);
-  alert("✅ data.json baixado!\n\nAgora arraste esse arquivo para o seu repositório no GitHub.");
+  alert("✅ data.js baixado!\n\nAgora suba esse arquivo para o GitHub no lugar do data.json anterior.");
 }

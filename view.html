@@ -347,6 +347,7 @@ body.dark .node{ background:rgba(20,24,39,0.95); }
 
 .node.flash{ box-shadow:0 0 0 4px rgba(200,133,58,0.25); }
 </style>
+<script src="data.js"></script>
 </head>
 <body>
 
@@ -969,20 +970,15 @@ function initChart(data) {
   drawChart(currentRoots);
 }
 
-// Load data.json from same folder
-fetch("data.json")
-  .then(function(r){
-    if(!r.ok) throw new Error("HTTP " + r.status);
-    return r.json();
-  })
-  .then(function(data){
-    initChart(data);
-  })
-  .catch(function(err){
-    console.error("Erro ao carregar data.json:", err);
-    document.getElementById("statusBar").style.display = "none";
-    document.getElementById("errorMsg").style.display  = "";
-  });
+// data.js must define window.orgData as an array
+// It is loaded via <script src="data.js"> in the head
+if (typeof window.ORG_DATA !== "undefined" && window.ORG_DATA.length) {
+  initChart(window.ORG_DATA);
+} else {
+  console.error("ORG_DATA not found - check data.js");
+  document.getElementById("statusBar").style.display = "none";
+  document.getElementById("errorMsg").style.display  = "";
+}
 </script>
 </body>
 </html>

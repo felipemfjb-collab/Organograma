@@ -529,7 +529,7 @@ function renderSubtree(node, depth, parentNode){
   if(hasChildren || hasAssistants){
     const btn=document.createElement("button");
     btn.className="collapse-btn";
-    btn.textContent="−";
+    btn.innerHTML="<span>−</span>";
     btn.title="Recolher/Expandir";
     btn.addEventListener("click",(e)=>{
       e.stopPropagation();
@@ -657,44 +657,43 @@ function renderSubtree(node, depth, parentNode){
       cols.style.cssText="display:flex;align-items:flex-start;";
 
       node.children.forEach((child,i)=>{
-        const isFirst = i===0;
-        const isLast  = i===node.children.length-1;
+        const isFirst=i===0, isLast=i===node.children.length-1, only=node.children.length===1;
 
         const col=document.createElement("div");
-        col.style.cssText="display:flex;flex-direction:column;align-items:center;padding:0 18px;";
+        col.style.cssText="display:flex;flex-direction:column;align-items:center;padding:0 18px;box-sizing:border-box;";
 
-        // hWrap: always-visible horizontal segment (not position:absolute)
-        const hWrap=document.createElement("div");
-        hWrap.style.cssText="width:100%;display:flex;height:2px;";
+        // Horizontal line: a full-width row at top, with colored segment
+        const hRow=document.createElement("div");
+        hRow.style.cssText="width:100%;height:2px;display:flex;flex-shrink:0;";
 
-        const hLeft=document.createElement("div");
-        hLeft.style.cssText="height:2px;background:var(--accent);"
-          +"flex:"+(isFirst?"0 0 50%":"1")+";"
-          +"visibility:"+(isFirst?"hidden":"visible")+";";
+        if(!only){
+          const hL=document.createElement("div");
+          hL.style.cssText="flex:1;height:2px;background:"+(isFirst?"transparent":"var(--accent)")+";";
 
-        const hRight=document.createElement("div");
-        hRight.style.cssText="height:2px;background:var(--accent);"
-          +"flex:"+(isLast?"0 0 50%":"1")+";"
-          +"visibility:"+(isLast?"hidden":"visible")+";";
+          const hR=document.createElement("div");
+          hR.style.cssText="flex:1;height:2px;background:"+(isLast?"transparent":"var(--accent)")+";";
 
-        const hDot=document.createElement("div");
-        hDot.style.cssText="width:2px;height:2px;background:var(--accent);flex-shrink:0;";
+          const hM=document.createElement("div");
+          hM.style.cssText="width:2px;flex-shrink:0;height:2px;background:var(--accent);";
 
-        hWrap.appendChild(hLeft);
-        hWrap.appendChild(hDot);
-        hWrap.appendChild(hRight);
+          hRow.appendChild(hL);
+          hRow.appendChild(hM);
+          hRow.appendChild(hR);
+        }
 
-        const vTop=document.createElement("div");
-        vTop.className="v-line";
-        vTop.style.cssText="height:24px;width:2px;background:var(--accent);margin:0 auto;";
+        // Vertical drop from center of hRow down to child
+        const vDrop=document.createElement("div");
+        vDrop.className="v-line";
+        vDrop.style.height="22px";
 
-        col.appendChild(hWrap);
-        col.appendChild(vTop);
+        col.appendChild(hRow);
+        col.appendChild(vDrop);
         col.appendChild(renderSubtree(child, depth+1, node));
         cols.appendChild(col);
       });
 
       childrenEl.appendChild(cols);
+dChild(cols);
     }
 
     wrap.appendChild(childrenEl);
@@ -848,7 +847,7 @@ function applyLevelFilter(){
       const parent=el.parentElement;
       if(parent){
         const btn=parent.querySelector(':scope .collapse-btn');
-        if(btn) btn.textContent="+";
+        if(btn) btn.innerHTML="<span>+</span>";
       }
     }
   });

@@ -296,17 +296,19 @@ body.dark .node{ background:rgba(20,24,39,0.95); }
 .node .collapse-btn{
   position:absolute; bottom:-16px; left:50%; transform:translateX(-50%);
   width:32px; height:32px; border-radius:50%;
-  background:var(--accent); color:white; border:none;
-  font-size:.9rem; cursor:pointer;
+  background:transparent; color:var(--accent); border:none;
+  font-size:.7rem; cursor:pointer;
   display:flex; align-items:center; justify-content:center;
-  font-weight:900; z-index:10; line-height:1;
-  box-shadow:0 2px 8px rgba(0,0,0,0.25);
-  transition:transform .15s, box-shadow .15s;
+  font-weight:900; z-index:10; line-height:1; padding:0;
 }
-.node .collapse-btn:hover{
-  transform:translateX(-50%) scale(1.2);
-  box-shadow:0 4px 14px rgba(200,133,58,0.45);
+.node .collapse-btn::after{
+  content:""; display:block; width:16px; height:16px;
+  border-radius:50%; background:var(--accent);
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  box-shadow:0 1px 4px rgba(0,0,0,0.25); transition:box-shadow .15s;
 }
+.node .collapse-btn:hover::after{ box-shadow:0 2px 8px rgba(200,133,58,0.5); }
+.node .collapse-btn span{ position:relative; z-index:1; }
 
 /* Search highlight */
 .node.highlighted{ border:2px solid #F5A623!important; box-shadow:0 0 0 3px rgba(245,166,35,0.3)!important; }
@@ -428,18 +430,15 @@ body.dark .node{ background:rgba(20,24,39,0.95); }
 </div>
 
 <script>
-var currentRoots = [], maxDepth = 0, countsMap = {};
+var currentRoots=[],maxDepth=0,countsMap={};
 
 function clamp(v,a,b){ return Math.min(b, Math.max(a,v)); }
 
 function normStr(s){ return String(s||"").trim(); }
 
 function stripAccents(s){
-  var r = "", str = String(s||"").normalize("NFD");
-  for(var i = 0; i < str.length; i++){
-    var c = str.charCodeAt(i);
-    if(c < 768 || c > 879) r += str[i];
-  }
+  var r="",str=String(s||"").normalize("NFD");
+  for(var i=0;i<str.length;i++){var c=str.charCodeAt(i);if(c<768||c>879)r+=str[i];}
   return r;
 }
 
@@ -581,7 +580,7 @@ function renderSubtree(node, depth, parentNode){
   if(hasChildren || hasAssistants){
     const btn=document.createElement("button");
     btn.className="collapse-btn";
-    btn.textContent="−";
+    btn.innerHTML="<span>−</span>";
     btn.title="Recolher/Expandir";
     btn.addEventListener("click",(e)=>{
       e.stopPropagation();
@@ -709,44 +708,43 @@ function renderSubtree(node, depth, parentNode){
       cols.style.cssText="display:flex;align-items:flex-start;";
 
       node.children.forEach((child,i)=>{
-        const isFirst = i===0;
-        const isLast  = i===node.children.length-1;
+        const isFirst=i===0, isLast=i===node.children.length-1, only=node.children.length===1;
 
         const col=document.createElement("div");
-        col.style.cssText="display:flex;flex-direction:column;align-items:center;padding:0 18px;";
+        col.style.cssText="display:flex;flex-direction:column;align-items:center;padding:0 18px;box-sizing:border-box;";
 
-        // hWrap: always-visible horizontal segment (not position:absolute)
-        const hWrap=document.createElement("div");
-        hWrap.style.cssText="width:100%;display:flex;height:2px;";
+        // Horizontal line: a full-width row at top, with colored segment
+        const hRow=document.createElement("div");
+        hRow.style.cssText="width:100%;height:2px;display:flex;flex-shrink:0;";
 
-        const hLeft=document.createElement("div");
-        hLeft.style.cssText="height:2px;background:var(--accent);"
-          +"flex:"+(isFirst?"0 0 50%":"1")+";"
-          +"visibility:"+(isFirst?"hidden":"visible")+";";
+        if(!only){
+          const hL=document.createElement("div");
+          hL.style.cssText="flex:1;height:2px;background:"+(isFirst?"transparent":"var(--accent)")+";";
 
-        const hRight=document.createElement("div");
-        hRight.style.cssText="height:2px;background:var(--accent);"
-          +"flex:"+(isLast?"0 0 50%":"1")+";"
-          +"visibility:"+(isLast?"hidden":"visible")+";";
+          const hR=document.createElement("div");
+          hR.style.cssText="flex:1;height:2px;background:"+(isLast?"transparent":"var(--accent)")+";";
 
-        const hDot=document.createElement("div");
-        hDot.style.cssText="width:2px;height:2px;background:var(--accent);flex-shrink:0;";
+          const hM=document.createElement("div");
+          hM.style.cssText="width:2px;flex-shrink:0;height:2px;background:var(--accent);";
 
-        hWrap.appendChild(hLeft);
-        hWrap.appendChild(hDot);
-        hWrap.appendChild(hRight);
+          hRow.appendChild(hL);
+          hRow.appendChild(hM);
+          hRow.appendChild(hR);
+        }
 
-        const vTop=document.createElement("div");
-        vTop.className="v-line";
-        vTop.style.cssText="height:24px;width:2px;background:var(--accent);margin:0 auto;";
+        // Vertical drop from center of hRow down to child
+        const vDrop=document.createElement("div");
+        vDrop.className="v-line";
+        vDrop.style.height="22px";
 
-        col.appendChild(hWrap);
-        col.appendChild(vTop);
+        col.appendChild(hRow);
+        col.appendChild(vDrop);
         col.appendChild(renderSubtree(child, depth+1, node));
         cols.appendChild(col);
       });
 
       childrenEl.appendChild(cols);
+dChild(cols);
     }
 
     wrap.appendChild(childrenEl);
@@ -849,7 +847,7 @@ function applyLevelFilter(){
     if(el._vline) el._vline.style.display="";
   });
   document.querySelectorAll(".assistants-below").forEach(el=> el.style.display="");
-  document.querySelectorAll(".node .collapse-btn").forEach(btn=> btn.textContent="−");
+  document.querySelectorAll(".node .collapse-btn").forEach(btn=> btn.innerHTML="<span>−</span>");
 
   document.querySelectorAll('.subtree-children[data-depth]').forEach(el=>{
     const d=parseInt(el.getAttribute("data-depth"),10);
@@ -871,7 +869,7 @@ function expandAll(){
     if(el._vline) el._vline.style.display="";
   });
   document.querySelectorAll(".assistants-below").forEach(el=> el.style.display="");
-  document.querySelectorAll(".node .collapse-btn").forEach(btn=> btn.textContent="−");
+  document.querySelectorAll(".node .collapse-btn").forEach(btn=> btn.innerHTML="<span>−</span>");
 }
 
 function collapseAll(){
@@ -895,92 +893,45 @@ function resetFilters(){
   expandAll();
   drawChart(currentRoots);
 }
-
 function toggleDark() {
   document.body.classList.toggle("dark");
   var b = document.getElementById("darkBtn");
   if(b) b.textContent = document.body.classList.contains("dark") ? "☀️ Modo claro" : "🌙 Modo escuro";
 }
-
 function applyZoom(v) {
   v = Math.min(150, Math.max(10, parseInt(v, 10)));
   var pl = document.getElementById("zoomPill"); if(pl) pl.textContent = v + "%";
   var o  = document.getElementById("orgChart"); if(o)  o.style.transform = "scale(" + v/100 + ")";
 }
-
 (function(){
   var wrap = document.getElementById("chartWrap"); if(!wrap) return;
-  var isDown=false, sx=0, sy=0, sl=0, st=0, dd=0, drag=false;
-  wrap.addEventListener("mousedown", function(e){
-    if(e.button!==0||e.target.closest("button")||e.target.closest("input")||e.target.closest("select")) return;
-    isDown=true; drag=false; dd=0; wrap.classList.add("dragging");
-    sx=e.clientX; sy=e.clientY; sl=wrap.scrollLeft; st=wrap.scrollTop;
-  });
-  window.addEventListener("mousemove", function(e){
-    if(!isDown) return;
-    var dx=e.clientX-sx, dy=e.clientY-sy;
-    dd=Math.max(dd,Math.abs(dx)+Math.abs(dy)); if(dd>3) drag=true;
-    wrap.scrollLeft=sl-dx; wrap.scrollTop=st-dy;
-  });
-  window.addEventListener("mouseup", function(){ isDown=false; wrap.classList.remove("dragging"); });
-  wrap.addEventListener("click", function(e){ if(drag){ e.preventDefault(); e.stopPropagation(); drag=false; } }, true);
-  wrap.addEventListener("wheel", function(e){
-    e.preventDefault();
-    var r=document.getElementById("zoomRange"); if(!r) return;
-    var z=Math.min(150,Math.max(10,parseInt(r.value||"100",10)+(e.deltaY<0?5:-5)));
-    r.value=z; applyZoom(z);
-  }, {passive:false});
+  var isDown=false,sx=0,sy=0,sl=0,st=0,dd=0,drag=false;
+  wrap.addEventListener("mousedown",function(e){if(e.button!==0||e.target.closest("button")||e.target.closest("input")||e.target.closest("select"))return;isDown=true;drag=false;dd=0;wrap.classList.add("dragging");sx=e.clientX;sy=e.clientY;sl=wrap.scrollLeft;st=wrap.scrollTop;});
+  window.addEventListener("mousemove",function(e){if(!isDown)return;var dx=e.clientX-sx,dy=e.clientY-sy;dd=Math.max(dd,Math.abs(dx)+Math.abs(dy));if(dd>3)drag=true;wrap.scrollLeft=sl-dx;wrap.scrollTop=st-dy;});
+  window.addEventListener("mouseup",function(){isDown=false;wrap.classList.remove("dragging");});
+  wrap.addEventListener("click",function(e){if(drag){e.preventDefault();e.stopPropagation();drag=false;}},true);
+  wrap.addEventListener("wheel",function(e){e.preventDefault();var r=document.getElementById("zoomRange");if(!r)return;var z=Math.min(150,Math.max(10,parseInt(r.value||"100",10)+(e.deltaY<0?5:-5)));r.value=z;applyZoom(z);},{passive:false});
 })();
-
 function initChart(data) {
-  currentRoots = buildTree(data);
-  maxDepth = 0;
-  currentRoots.forEach(function(r){ calcMaxDepth(r, 0); });
-  countsMap = computeCounts(currentRoots);
-
-  var ac = data.filter(function(p){ return p.assistente; }).length;
-  var sb = document.getElementById("statusBar");
-  if(sb) {
-    sb.innerHTML = "";
-    var d1=document.createElement("div"); d1.className="stat";
-    var s1=document.createElement("strong"); s1.textContent=data.length;
-    d1.appendChild(s1); d1.appendChild(document.createTextNode(" pessoas"));
-    var d2=document.createElement("div"); d2.className="stat";
-    var s2=document.createElement("strong"); s2.textContent=(data.length-ac);
-    d2.appendChild(s2); d2.appendChild(document.createTextNode(" na hierarquia"));
-    var d3=document.createElement("div"); d3.className="tip";
-    d3.textContent = "👁️ Modo visualização";
-    sb.appendChild(d1); sb.appendChild(d2); sb.appendChild(d3);
-  }
-
-  var ls = document.getElementById("levelSelect");
-  if(ls){ for(var i=1;i<=maxDepth;i++){ var o=document.createElement("option"); o.value=i; o.textContent="Até nível "+i; ls.appendChild(o); } }
-
-  var asel = document.getElementById("areaSelect");
-  if(asel){
-    var ns = (currentRoots.length===1 && currentRoots[0].children.length>0) ? currentRoots[0].children : currentRoots;
-    ns.forEach(function(n){ var o=document.createElement("option"); o.value=n.id; o.textContent=n.nome+" ("+(n.cargo||"-")+")"; asel.appendChild(o); });
-  }
-
-  document.getElementById("filtersBar").style.display = "";
-  document.getElementById("legendBar").style.display  = "";
-  document.getElementById("chartWrap").style.display  = "";
+  currentRoots=buildTree(data); maxDepth=0;
+  currentRoots.forEach(function(r){calcMaxDepth(r,0);}); countsMap=computeCounts(currentRoots);
+  var ac=data.filter(function(p){return p.assistente;}).length;
+  var sb=document.getElementById("statusBar");
+  if(sb){sb.innerHTML="";var d1=document.createElement("div");d1.className="stat";var s1=document.createElement("strong");s1.textContent=data.length;d1.appendChild(s1);d1.appendChild(document.createTextNode(" pessoas"));var d2=document.createElement("div");d2.className="stat";var s2=document.createElement("strong");s2.textContent=(data.length-ac);d2.appendChild(s2);d2.appendChild(document.createTextNode(" na hierarquia"));var d3=document.createElement("div");d3.className="tip";d3.textContent="👁️ Modo visualização";sb.appendChild(d1);sb.appendChild(d2);sb.appendChild(d3);}
+  var ls=document.getElementById("levelSelect");
+  if(ls){for(var i=1;i<=maxDepth;i++){var o=document.createElement("option");o.value=i;o.textContent="Até nível "+i;ls.appendChild(o);}}
+  var asel=document.getElementById("areaSelect");
+  if(asel){var ns=(currentRoots.length===1&&currentRoots[0].children.length>0)?currentRoots[0].children:currentRoots;ns.forEach(function(n){var o=document.createElement("option");o.value=n.id;o.textContent=n.nome+" ("+(n.cargo||"-")+")";asel.appendChild(o);});}
+  document.getElementById("filtersBar").style.display="";
+  document.getElementById("legendBar").style.display="";
+  document.getElementById("chartWrap").style.display="";
   drawChart(currentRoots);
 }
-
-window.addEventListener("load", function() {
-  var data = null;
-  if (typeof window.ORG_DATA !== "undefined" && Array.isArray(window.ORG_DATA) && window.ORG_DATA.length) {
-    data = window.ORG_DATA;
-  } else if (typeof window.orgData !== "undefined" && Array.isArray(window.orgData) && window.orgData.length) {
-    data = window.orgData;
-  }
-  if (data) {
-    initChart(data);
-  } else {
-    document.getElementById("statusBar").style.display = "none";
-    document.getElementById("errorMsg").style.display  = "";
-  }
+window.addEventListener("load",function(){
+  var data=null;
+  if(typeof window.ORG_DATA!=="undefined"&&Array.isArray(window.ORG_DATA)&&window.ORG_DATA.length) data=window.ORG_DATA;
+  else if(typeof window.orgData!=="undefined"&&Array.isArray(window.orgData)&&window.orgData.length) data=window.orgData;
+  if(data){initChart(data);}else{document.getElementById("statusBar").style.display="none";document.getElementById("errorMsg").style.display="";}
 });
 </script>
 </body>

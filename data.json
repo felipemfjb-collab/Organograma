@@ -1,0 +1,3562 @@
+[
+  {
+    "id": "16138",
+    "nome": "DANILO AFONSO ROCHA DE OLIVEIRA",
+    "cargo": "Coordenador do Contrato",
+    "gestor": "",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "9355",
+    "nome": "JONAS CUPERTINO DE OLIVEIRA",
+    "cargo": "Coordenador",
+    "gestor": "DANILO AFONSO ROCHA DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "Caldeiraria",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "12565",
+    "nome": "CARLOS JOSE DA CONCEICAO SILVA",
+    "cargo": "Supervisor",
+    "gestor": "JONAS CUPERTINO DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "32599",
+    "nome": "ALDAI SANTOS DE JESUS JUNIOR",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "CARLOS JOSE DA CONCEICAO SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "9754",
+    "nome": "ALEXANDRE DOS SANTOS",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "CARLOS JOSE DA CONCEICAO SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "28840",
+    "nome": "CELIO DE SOUZA RAMOS",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "CARLOS JOSE DA CONCEICAO SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32162",
+    "nome": "CLAUDIO ROMÃO DA SILVA",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "CARLOS JOSE DA CONCEICAO SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32676",
+    "nome": "DEIVISON DA SILVA FERREIRA",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "CARLOS JOSE DA CONCEICAO SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "11976",
+    "nome": "DELMAR GUARINO DO PATROCINIO",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "CARLOS JOSE DA CONCEICAO SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "8908",
+    "nome": "EUZIMAR SERRANO MARQUES",
+    "cargo": "Técnicos de Caldeiraria IV",
+    "gestor": "CARLOS JOSE DA CONCEICAO SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32593",
+    "nome": "GUSTAVO PESSANHA DOS SANTOS",
+    "cargo": "Técnicos de Caldeiraria I",
+    "gestor": "CARLOS JOSE DA CONCEICAO SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "31686",
+    "nome": "GILVAN DA COSTA RAMOS",
+    "cargo": "Supervisor",
+    "gestor": "JONAS CUPERTINO DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "33003",
+    "nome": "ITALO DA LUZ DA SILVA",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILVAN DA COSTA RAMOS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "33001",
+    "nome": "IVAN ARAUJO DA SILVA",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILVAN DA COSTA RAMOS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "12001",
+    "nome": "JEFERSON LUCIANO DE OLIVEIRA",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "GILVAN DA COSTA RAMOS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "90059",
+    "nome": "JOSE DE PAULO DO NASCIMENTO SOUZA",
+    "cargo": "Técnicos de Caldeiraria I",
+    "gestor": "GILVAN DA COSTA RAMOS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32874",
+    "nome": "JULIO CESAR ORNELLAS DE OLIVEIRA",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "GILVAN DA COSTA RAMOS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "28848",
+    "nome": "MAICOLN BARROS DA SILVA LEMOS",
+    "cargo": "Técnicos de Caldeiraria IV",
+    "gestor": "GILVAN DA COSTA RAMOS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "30328",
+    "nome": "MARCOS AURELIO DO COUTO",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILVAN DA COSTA RAMOS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "30503",
+    "nome": "NELSON BERNARDO MARTINS JUNIOR",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILVAN DA COSTA RAMOS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "17684",
+    "nome": "NILSON CORDEIRO DE OLIVEIRA",
+    "cargo": "Supervisor",
+    "gestor": "JONAS CUPERTINO DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "30329",
+    "nome": "OSEIAS DA SILVA DIAS JUNIOR",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "NILSON CORDEIRO DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32859",
+    "nome": "RAFAEL AMERICO DA SILVA",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "NILSON CORDEIRO DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "23874",
+    "nome": "ROGERIO CAMPOS GARCIA",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "NILSON CORDEIRO DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "33007",
+    "nome": "SANDRO SILVA BATISTA",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "NILSON CORDEIRO DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32017",
+    "nome": "VALDIR JOSÉ DA SILVA",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "NILSON CORDEIRO DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32673",
+    "nome": "WANDERSON LIMA DE FREITAS",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "NILSON CORDEIRO DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "8844",
+    "nome": "RONALDO CORDEIRO DOS REIS",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "NILSON CORDEIRO DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "18007",
+    "nome": "LEANDRO XAVIER DE SOUZA",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "NILSON CORDEIRO DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "8847",
+    "nome": "JAIRO DE SOUZA SILVA",
+    "cargo": "Técnicos em Solda III",
+    "gestor": "JONAS CUPERTINO DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "29064",
+    "nome": "THIAGO DA SILVA PEREIRA",
+    "cargo": "Técnicos em Solda III",
+    "gestor": "JAIRO DE SOUZA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "SOLDA",
+    "assistente": false
+  },
+  {
+    "id": "24153",
+    "nome": "THIAGO LISBOA CLAUDINO",
+    "cargo": "Técnicos em Solda III",
+    "gestor": "JAIRO DE SOUZA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "SOLDA",
+    "assistente": false
+  },
+  {
+    "id": "11542",
+    "nome": "TIAGO ROBERTO DE SOUZA MARTINS",
+    "cargo": "Técnicos em Solda II",
+    "gestor": "JAIRO DE SOUZA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "SOLDA",
+    "assistente": false
+  },
+  {
+    "id": "8846",
+    "nome": "FABIO SOUZA SANTANA",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "CARLOS JOSE DA CONCEICAO SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "30324",
+    "nome": "ANDRE AUGUSTO DOS SANTOS",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "CARLOS JOSE DA CONCEICAO SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32683",
+    "nome": "MARCOS PAULO DA SILVA",
+    "cargo": "Técnicos em Solda II",
+    "gestor": "CARLOS JOSE DA CONCEICAO SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "31433",
+    "nome": "JOÃO VICTOR ELIAS DE LIMA",
+    "cargo": "Auxiliar Planejamento",
+    "gestor": "JONAS CUPERTINO DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "31825",
+    "nome": "MARIA APARECIDA DE SOUZA",
+    "cargo": "Auxiliar Administrativo",
+    "gestor": "JONAS CUPERTINO DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "30764",
+    "nome": "JOÃO CARLOS OLIVEIRA DE JESUS",
+    "cargo": "Coordenador",
+    "gestor": "DANILO AFONSO ROCHA DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "Mecânica",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "10657",
+    "nome": "CLAUDIO AZEVEDO DA SILVA",
+    "cargo": "Supervisor",
+    "gestor": "JOÃO CARLOS OLIVEIRA DE JESUS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "28998",
+    "nome": "DANIEL VIANA BARBOSA",
+    "cargo": "Técnicos em Mecânica I",
+    "gestor": "CLAUDIO AZEVEDO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "11966",
+    "nome": "ISAIAS MOREIRA",
+    "cargo": "Técnicos em Mecânica IV",
+    "gestor": "CLAUDIO AZEVEDO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "30649",
+    "nome": "LUCAS CHAVES DA SILVA",
+    "cargo": "Técnicos em Mecânica I",
+    "gestor": "CLAUDIO AZEVEDO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "25713",
+    "nome": "MARCELO DA SILVA GUIMARAES",
+    "cargo": "Supervisor",
+    "gestor": "JOÃO CARLOS OLIVEIRA DE JESUS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "32487",
+    "nome": "MARCIO ROCHA FONTES",
+    "cargo": "Técnicos em Mecânica III",
+    "gestor": "MARCELO DA SILVA GUIMARAES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "9757",
+    "nome": "MARIO HENRIQUE MACHADO DOS SANTOS",
+    "cargo": "Técnicos em Mecânica III",
+    "gestor": "MARCELO DA SILVA GUIMARAES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "23510",
+    "nome": "MOISES DA SILVA DE ALMEIDA",
+    "cargo": "Técnicos em Mecânica II",
+    "gestor": "MARCELO DA SILVA GUIMARAES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "32542",
+    "nome": "GENILSON GONÇALVES",
+    "cargo": "Supervisor",
+    "gestor": "JOÃO CARLOS OLIVEIRA DE JESUS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "32087",
+    "nome": "ROGERIO HENRIQUE COELHO VIEIRA",
+    "cargo": "Técnicos em Mecânica I",
+    "gestor": "GENILSON GONÇALVES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "32185",
+    "nome": "WAGNER ALMEIDA DE MORAES",
+    "cargo": "Técnicos em Mecânica III",
+    "gestor": "GENILSON GONÇALVES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "10149",
+    "nome": "WILLIAM MARCOS DA SILVA",
+    "cargo": "Técnicos em Mecânica IV",
+    "gestor": "GENILSON GONÇALVES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "17904",
+    "nome": "ANTONIO CARLOS DE ABREU",
+    "cargo": "Supervisor",
+    "gestor": "JOÃO CARLOS OLIVEIRA DE JESUS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "30527",
+    "nome": "DIMAS DA SILVEIRA FRANÇA",
+    "cargo": "Técnicos em Lubrificação II",
+    "gestor": "ANTONIO CARLOS DE ABREU",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "LUBRIFICAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "31580",
+    "nome": "ELIEZER BLAY DE PINNA",
+    "cargo": "Técnicos em Lubrificação II",
+    "gestor": "ANTONIO CARLOS DE ABREU",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "LUBRIFICAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "30326",
+    "nome": "JONATAS DE CARVALHO",
+    "cargo": "Técnicos em Lubrificação II",
+    "gestor": "ANTONIO CARLOS DE ABREU",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "LUBRIFICAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "18010",
+    "nome": "LUIZ EDUARDO DE OLIVEIRA DOREA",
+    "cargo": "Técnicos em Lubrificação II",
+    "gestor": "ANTONIO CARLOS DE ABREU",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "LUBRIFICAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "23732",
+    "nome": "MARCIO ANTONIO DE MELO",
+    "cargo": "Técnicos em Lubrificação II",
+    "gestor": "ANTONIO CARLOS DE ABREU",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "LUBRIFICAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "33546",
+    "nome": "PAULO ROBERTO CASSIANO DE ALMEIDA",
+    "cargo": "Técnicos em Lubrificação II",
+    "gestor": "ANTONIO CARLOS DE ABREU",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "LUBRIFICAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "23716",
+    "nome": "ANDERSON FERREIRA DA SILVA",
+    "cargo": "Supervisor",
+    "gestor": "JOÃO CARLOS OLIVEIRA DE JESUS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "30920",
+    "nome": "DENIS LUIZ LABRE DE ARAUJO",
+    "cargo": "Técnicos em Refrigeração II",
+    "gestor": "ANDERSON FERREIRA DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "REFRIGERAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "23419",
+    "nome": "GUILHERME DA CONCEIÇÃO CARLOS",
+    "cargo": "Técnicos em Refrigeração II",
+    "gestor": "ANDERSON FERREIRA DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "REFRIGERAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "31581",
+    "nome": "HELIO FREIRE",
+    "cargo": "Técnicos em Refrigeração II",
+    "gestor": "ANDERSON FERREIRA DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "REFRIGERAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "23638",
+    "nome": "JORGE LUIS DA SILVA",
+    "cargo": "Técnicos em Refrigeração II",
+    "gestor": "ANDERSON FERREIRA DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "REFRIGERAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "9624",
+    "nome": "MARCIO DA SILVA FERREIRA",
+    "cargo": "Técnicos em Refrigeração II",
+    "gestor": "ANDERSON FERREIRA DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "REFRIGERAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "11092",
+    "nome": "MAURICIO FALCAO DA SILVA",
+    "cargo": "Técnicos em Refrigeração II",
+    "gestor": "ANDERSON FERREIRA DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "REFRIGERAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "27721",
+    "nome": "PABLO COSTA VELASQUE",
+    "cargo": "Técnicos em Refrigeração II",
+    "gestor": "ANDERSON FERREIRA DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "REFRIGERAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "31586",
+    "nome": "UENDEL CONCEIÇÃO DA SLVA",
+    "cargo": "Técnicos em Refrigeração II",
+    "gestor": "ANDERSON FERREIRA DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "REFRIGERAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "31578",
+    "nome": "ALAN LENNON SOARES FERRAZ",
+    "cargo": "Técnicos em Refrigeração II",
+    "gestor": "ANDERSON FERREIRA DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "REFRIGERAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "29884",
+    "nome": "ANDERSON SOARES SALVIANO SILVA",
+    "cargo": "Técnicos em Refrigeração II",
+    "gestor": "ANDERSON FERREIRA DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "REFRIGERAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "31817",
+    "nome": "ALEXANDRE SILVA GOMES",
+    "cargo": "Mecânico de válvulas",
+    "gestor": "GENILSON GONÇALVES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "VÁLVULA",
+    "assistente": false
+  },
+  {
+    "id": "23637",
+    "nome": "CARLOS HENRIQUE DA SILVA MARTINS",
+    "cargo": "Mecânico de válvulas",
+    "gestor": "GENILSON GONÇALVES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "VÁLVULA",
+    "assistente": false
+  },
+  {
+    "id": "21797",
+    "nome": "MICHAEL DOS SANTOS FANELI",
+    "cargo": "Mecânico de válvulas",
+    "gestor": "GENILSON GONÇALVES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "VÁLVULA",
+    "assistente": false
+  },
+  {
+    "id": "8886",
+    "nome": "CRISTIANO SANTANA DE LIMA",
+    "cargo": "Torneiro mecânico",
+    "gestor": "GENILSON GONÇALVES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "TORNEIRO",
+    "assistente": false
+  },
+  {
+    "id": "30203",
+    "nome": "JOSE RENATO SANTOS DE QUEIROZ",
+    "cargo": "Torneiro mecânico",
+    "gestor": "GENILSON GONÇALVES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "TORNEIRO",
+    "assistente": false
+  },
+  {
+    "id": "8907",
+    "nome": "FABRICIO KREISCHER",
+    "cargo": "Técnico em Motores",
+    "gestor": "MARCELO DA SILVA GUIMARAES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MOTOR",
+    "assistente": false
+  },
+  {
+    "id": "90058",
+    "nome": "REINALDO PEREIRA SALLES",
+    "cargo": "Técnico em Motores",
+    "gestor": "MARCELO DA SILVA GUIMARAES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MOTOR",
+    "assistente": false
+  },
+  {
+    "id": "25165",
+    "nome": "KEROLLYN PEREIRA DE PAULO",
+    "cargo": "Técnico em Monitoramento Preditivo I",
+    "gestor": "CLAUDIO AZEVEDO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "PREDITIVA",
+    "assistente": false
+  },
+  {
+    "id": "90060",
+    "nome": "INGRID ESTEVES DE OLIVEIRA VIANA",
+    "cargo": "Técnico em Monitoramento Preditivo I",
+    "gestor": "CLAUDIO AZEVEDO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "PREDITIVA",
+    "assistente": false
+  },
+  {
+    "id": "32773",
+    "nome": "FABRICIO MOREIRA RUFINO",
+    "cargo": "Desenhista",
+    "gestor": "JOÃO CARLOS OLIVEIRA DE JESUS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "30608",
+    "nome": "RENAN LEMOS DA CRUZ",
+    "cargo": "Auxiliar Administrativo",
+    "gestor": "JOÃO CARLOS OLIVEIRA DE JESUS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "26225",
+    "nome": "DOUGLAS GUTYERRES RIBEIRO DE SOUZA",
+    "cargo": "Coordenador",
+    "gestor": "DANILO AFONSO ROCHA DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "Paradas",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "25164",
+    "nome": "DAVI FELICIANO VIEIRA",
+    "cargo": "Supervisor",
+    "gestor": "DOUGLAS GUTYERRES RIBEIRO DE SOUZA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "32163",
+    "nome": "CLÉCIO CEZARIO DA SILVA",
+    "cargo": "Técnicos em Elétrica III",
+    "gestor": "DAVI FELICIANO VIEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "29054",
+    "nome": "ARTHUR FONTES REBELO KIKUTS",
+    "cargo": "Técnicos em Elétrica I",
+    "gestor": "DAVI FELICIANO VIEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "31440",
+    "nome": "CHARLES ISAAC MOURA DA SILVA",
+    "cargo": "Técnicos em Elétrica III",
+    "gestor": "DAVI FELICIANO VIEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "32010",
+    "nome": "JOSIAS MARIANO MACHADO",
+    "cargo": "Técnicos em Elétrica III",
+    "gestor": "DAVI FELICIANO VIEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "28760",
+    "nome": "LEANDRO RODRIGUES DOS SANTOS",
+    "cargo": "Técnicos em Elétrica II",
+    "gestor": "DAVI FELICIANO VIEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "26187",
+    "nome": "MAURO SERGIO DE CARVALHO",
+    "cargo": "Técnicos em Elétrica III",
+    "gestor": "DAVI FELICIANO VIEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "17270",
+    "nome": "OSIEL ALVES FERREIRA",
+    "cargo": "Técnicos em Elétrica II",
+    "gestor": "DAVI FELICIANO VIEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "30770",
+    "nome": "ROBERTO BELARMINO DA SILVA",
+    "cargo": "Técnicos em Elétrica I",
+    "gestor": "DAVI FELICIANO VIEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "25670",
+    "nome": "STEPHANIE DOS SANTOS SOUZA",
+    "cargo": "Técnicos em Elétrica II",
+    "gestor": "DAVI FELICIANO VIEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "24155",
+    "nome": "WAGNER FRANCO DA SILVA",
+    "cargo": "Técnicos em Elétrica III",
+    "gestor": "DAVI FELICIANO VIEIRA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "32082",
+    "nome": "ESTEVÃO AMARAL DE SOUZA",
+    "cargo": "Técnicos em Instrumentação II",
+    "gestor": "A CONTRATAR (supervisor)",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "INSTRUMENTAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "27082",
+    "nome": "ADALBERTO ALEXANDRINO JUNIOR",
+    "cargo": "Técnicos em Instrumentação IV",
+    "gestor": "A CONTRATAR (supervisor)",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "INSTRUMENTAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "29266",
+    "nome": "LUCAS BAHMKE DAMASCENO DA SILVA",
+    "cargo": "Técnicos em Instrumentação I",
+    "gestor": "A CONTRATAR (supervisor)",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "INSTRUMENTAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "30207",
+    "nome": "RUAN AMARAL SODRE DA SILVA",
+    "cargo": "Técnicos em Instrumentação III",
+    "gestor": "A CONTRATAR (supervisor)",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "INSTRUMENTAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "33008",
+    "nome": "GABRIEL RIBEIRO DA SILVA",
+    "cargo": "Técnicos em Instrumentação I",
+    "gestor": "A CONTRATAR (supervisor)",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "INSTRUMENTAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "18071",
+    "nome": "JORGE ANDRE GONÇALVES PALMA",
+    "cargo": "Coordenador",
+    "gestor": "DANILO AFONSO ROCHA DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "Complementar",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "9677",
+    "nome": "WAGNER SANTOS TEIXEIRA DA COSTA",
+    "cargo": "Supervisor",
+    "gestor": "JORGE ANDRE GONÇALVES PALMA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "18017",
+    "nome": "ADEMIR SILVA PAVANI",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "WAGNER SANTOS TEIXEIRA DA COSTA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "12036",
+    "nome": "FELIPE DE SOUSA MACHADO SILVA",
+    "cargo": "Técnicos em Acessos III",
+    "gestor": "WAGNER SANTOS TEIXEIRA DA COSTA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "31677",
+    "nome": "LUCAS DA COSTA DA CONCEIÇÃO",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "WAGNER SANTOS TEIXEIRA DA COSTA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "31436",
+    "nome": "LUCIANO SANTA ROSA",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "WAGNER SANTOS TEIXEIRA DA COSTA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "31829",
+    "nome": "RAFAEL COSTA DE OLIVEIRA",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "WAGNER SANTOS TEIXEIRA DA COSTA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "14368",
+    "nome": "RODRIGO DA SILVA",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "WAGNER SANTOS TEIXEIRA DA COSTA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "27391",
+    "nome": "VALTEIR DE CARVALHO JESUS",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "WAGNER SANTOS TEIXEIRA DA COSTA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "31437",
+    "nome": "YAN CORRÊA LIMA",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "WAGNER SANTOS TEIXEIRA DA COSTA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "27388",
+    "nome": "FABIANO SANTA ROSA",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "WAGNER SANTOS TEIXEIRA DA COSTA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "28637",
+    "nome": "PAULO JOSE MENEZES DE BRITO JUNIOR",
+    "cargo": "Supervisor",
+    "gestor": "JORGE ANDRE GONÇALVES PALMA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "28612",
+    "nome": "ALDAIR QUIORATO ALVES",
+    "cargo": "Alpinista N2 Caldeireiro",
+    "gestor": "PAULO JOSE MENEZES DE BRITO JUNIOR",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ALPINISMO",
+    "assistente": false
+  },
+  {
+    "id": "32385",
+    "nome": "DIOGO DA SILVA RODRIGUES",
+    "cargo": "Alpinista N2 Pintor",
+    "gestor": "PAULO JOSE MENEZES DE BRITO JUNIOR",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ALPINISMO",
+    "assistente": false
+  },
+  {
+    "id": "31203",
+    "nome": "OSMAN DOS SANTOS DIAS",
+    "cargo": "Alpinista N1 Pintor",
+    "gestor": "PAULO JOSE MENEZES DE BRITO JUNIOR",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ALPINISMO",
+    "assistente": false
+  },
+  {
+    "id": "29585",
+    "nome": "PATRICK VIEIRA DA SILVA",
+    "cargo": "Alpinista N1 Inspeção de Equipamentos",
+    "gestor": "PAULO JOSE MENEZES DE BRITO JUNIOR",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ALPINISMO",
+    "assistente": false
+  },
+  {
+    "id": "28765",
+    "nome": "PEDRO FELIPE RODRIGUES DE JESUS",
+    "cargo": "Alpinista N2 Caldeireiro",
+    "gestor": "PAULO JOSE MENEZES DE BRITO JUNIOR",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ALPINISMO",
+    "assistente": false
+  },
+  {
+    "id": "28638",
+    "nome": "RAFAEL DA CONCEIÇÃO ANDRE",
+    "cargo": "Alpinista N3 Pintor",
+    "gestor": "PAULO JOSE MENEZES DE BRITO JUNIOR",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ALPINISMO",
+    "assistente": false
+  },
+  {
+    "id": "31204",
+    "nome": "RICARDO DA SILVA FILHO",
+    "cargo": "Alpinista N1 Pintor",
+    "gestor": "PAULO JOSE MENEZES DE BRITO JUNIOR",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ALPINISMO",
+    "assistente": false
+  },
+  {
+    "id": "14097",
+    "nome": "ROMULO REIS DOS SANTOS",
+    "cargo": "Técnicos em Pintura IV",
+    "gestor": "PAULO JOSE MENEZES DE BRITO JUNIOR",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ALPINISMO",
+    "assistente": false
+  },
+  {
+    "id": "28836",
+    "nome": "SAM GUILHERME ALMEIDA",
+    "cargo": "Alpinista N1 Pintor",
+    "gestor": "PAULO JOSE MENEZES DE BRITO JUNIOR",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ALPINISMO",
+    "assistente": false
+  },
+  {
+    "id": "30647",
+    "nome": "UEVERTON DA SILVA ALVES",
+    "cargo": "Alpinista N1 Pintor",
+    "gestor": "PAULO JOSE MENEZES DE BRITO JUNIOR",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ALPINISMO",
+    "assistente": false
+  },
+  {
+    "id": "29809",
+    "nome": "JOSE ROBERTO ARAUJO DA SILVA",
+    "cargo": "Supervisor",
+    "gestor": "JORGE ANDRE GONÇALVES PALMA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "33457",
+    "nome": "CAIO FELIPE DUCLA DE LIMA",
+    "cargo": "Ajudante de Pedreiro",
+    "gestor": "JOSE ROBERTO ARAUJO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CIVIL",
+    "assistente": false
+  },
+  {
+    "id": "24651",
+    "nome": "CLAUDIO RIBEIRO",
+    "cargo": "Pedreiro",
+    "gestor": "JOSE ROBERTO ARAUJO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CIVIL",
+    "assistente": false
+  },
+  {
+    "id": "28997",
+    "nome": "CRISTIAN JORGE EVANGELISTA DOS SANTOS",
+    "cargo": "Pedreiro",
+    "gestor": "JOSE ROBERTO ARAUJO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CIVIL",
+    "assistente": false
+  },
+  {
+    "id": "24445",
+    "nome": "EDEVALDO PEREIRA FELIPE",
+    "cargo": "Bombeiro Hidráulico",
+    "gestor": "JOSE ROBERTO ARAUJO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CIVIL",
+    "assistente": false
+  },
+  {
+    "id": "26184",
+    "nome": "ELIEL SOUZA DE ABREU",
+    "cargo": "Artífice",
+    "gestor": "JOSE ROBERTO ARAUJO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CIVIL",
+    "assistente": false
+  },
+  {
+    "id": "90057",
+    "nome": "GABRIEL SOARES CAVALCANTE",
+    "cargo": "Ajudante de Pedreiro",
+    "gestor": "JOSE ROBERTO ARAUJO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CIVIL",
+    "assistente": false
+  },
+  {
+    "id": "9547",
+    "nome": "GILBERTO MARIANO PINTO",
+    "cargo": "Bombeiro Hidráulico",
+    "gestor": "JOSE ROBERTO ARAUJO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CIVIL",
+    "assistente": false
+  },
+  {
+    "id": "9548",
+    "nome": "IDERALDO RIBEIRO RAIMUNDO",
+    "cargo": "Pedreiro",
+    "gestor": "JOSE ROBERTO ARAUJO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CIVIL",
+    "assistente": false
+  },
+  {
+    "id": "8877",
+    "nome": "LUCIANO XAVIER DE ALMEIDA",
+    "cargo": "Supervisor",
+    "gestor": "JORGE ANDRE GONÇALVES PALMA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "33530",
+    "nome": "JONATHAN GUIMARAES DE MATOS",
+    "cargo": "Ajudante de Pedreiro",
+    "gestor": "LUCIANO XAVIER DE ALMEIDA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CIVIL",
+    "assistente": false
+  },
+  {
+    "id": "28020",
+    "nome": "LUIZ FERNANDO DA SILVA",
+    "cargo": "Pedreiro",
+    "gestor": "LUCIANO XAVIER DE ALMEIDA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CIVIL",
+    "assistente": false
+  },
+  {
+    "id": "33466",
+    "nome": "LUIZ FERNANDO DE OLIVEIRA DOS SANTOS",
+    "cargo": "Ajudante de Pedreiro",
+    "gestor": "LUCIANO XAVIER DE ALMEIDA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CIVIL",
+    "assistente": false
+  },
+  {
+    "id": "28019",
+    "nome": "MARIO CESAR DA SILVA PEREIRA",
+    "cargo": "Pedreiro",
+    "gestor": "LUCIANO XAVIER DE ALMEIDA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CIVIL",
+    "assistente": false
+  },
+  {
+    "id": "33465",
+    "nome": "PAULO EDUARDO DOS SANTOS XAVIER",
+    "cargo": "Ajudante de Pedreiro",
+    "gestor": "LUCIANO XAVIER DE ALMEIDA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CIVIL",
+    "assistente": false
+  },
+  {
+    "id": "30931",
+    "nome": "SANDRO JOSE DA SILVA",
+    "cargo": "Pedreiro",
+    "gestor": "LUCIANO XAVIER DE ALMEIDA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CIVIL",
+    "assistente": false
+  },
+  {
+    "id": "29016",
+    "nome": "SERGIO DA SILVA",
+    "cargo": "Pedreiro",
+    "gestor": "LUCIANO XAVIER DE ALMEIDA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CIVIL",
+    "assistente": false
+  },
+  {
+    "id": "9904",
+    "nome": "JOSIVALDO DA SILVA MONTENEGRO",
+    "cargo": "Técnico de Movimentação de Carga",
+    "gestor": "LUCIANO XAVIER DE ALMEIDA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CIVIL",
+    "assistente": false
+  },
+  {
+    "id": "30609",
+    "nome": "THIAGO ESTRELLA SANTIAGO",
+    "cargo": "Técnico de Movimentação de Carga",
+    "gestor": "LUCIANO XAVIER DE ALMEIDA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CIVIL",
+    "assistente": false
+  },
+  {
+    "id": "30202",
+    "nome": "JOAO CARLOS SILVA GOMES",
+    "cargo": "Supervisor",
+    "gestor": "JORGE ANDRE GONÇALVES PALMA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "26804",
+    "nome": "ALUIZIO FERNANDES DA SILVA",
+    "cargo": "Técnicos em Isolamento IV",
+    "gestor": "JOAO CARLOS SILVA GOMES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ISOLAMENTO",
+    "assistente": false
+  },
+  {
+    "id": "22585",
+    "nome": "GILSON SANTOS DA ROCHA",
+    "cargo": "Técnicos em Isolamento IV",
+    "gestor": "JOAO CARLOS SILVA GOMES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ISOLAMENTO",
+    "assistente": false
+  },
+  {
+    "id": "8807",
+    "nome": "ADENIR CELSO DE SOUZA",
+    "cargo": "Técnicos em Isolamento III",
+    "gestor": "JOAO CARLOS SILVA GOMES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ISOLAMENTO",
+    "assistente": false
+  },
+  {
+    "id": "31734",
+    "nome": "CARLOS HENRIQUE MOREIRA ALVES BONFIM",
+    "cargo": "Técnicos em Isolamento II",
+    "gestor": "JOAO CARLOS SILVA GOMES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ISOLAMENTO",
+    "assistente": false
+  },
+  {
+    "id": "29052",
+    "nome": "MARCOS BORGES VIEIRA",
+    "cargo": "Técnicos em Isolamento II",
+    "gestor": "JOAO CARLOS SILVA GOMES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ISOLAMENTO",
+    "assistente": false
+  },
+  {
+    "id": "22889",
+    "nome": "WALDEQUE MELLO DOS SANTOS",
+    "cargo": "Técnicos em Isolamento III",
+    "gestor": "JOAO CARLOS SILVA GOMES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ISOLAMENTO",
+    "assistente": false
+  },
+  {
+    "id": "28753",
+    "nome": "ALEX GUSMÃO",
+    "cargo": "Supervisor",
+    "gestor": "JORGE ANDRE GONÇALVES PALMA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "28614",
+    "nome": "ALEXANDRE LUIZ DIAS DE SOUZA",
+    "cargo": "Técnicos em Pintura II",
+    "gestor": "ALEX GUSMÃO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "PINTURA",
+    "assistente": false
+  },
+  {
+    "id": "28620",
+    "nome": "DOUGLAS PEREIRA DE SOUZA",
+    "cargo": "Técnicos em Pintura II",
+    "gestor": "ALEX GUSMÃO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "PINTURA",
+    "assistente": false
+  },
+  {
+    "id": "28626",
+    "nome": "JONATHAS MARTINS JACOMO NEVES",
+    "cargo": "Técnicos em Pintura II",
+    "gestor": "ALEX GUSMÃO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "PINTURA",
+    "assistente": false
+  },
+  {
+    "id": "30209",
+    "nome": "JONILSON DIAS DE OLIVEIRA",
+    "cargo": "Técnicos em Pintura III",
+    "gestor": "ALEX GUSMÃO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "PINTURA",
+    "assistente": false
+  },
+  {
+    "id": "33535",
+    "nome": "LEONARDO DE PAULO DA SILVA SOUZA",
+    "cargo": "Técnicos em Pintura II",
+    "gestor": "ALEX GUSMÃO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "PINTURA",
+    "assistente": false
+  },
+  {
+    "id": "28762",
+    "nome": "LUIZ FELIX DA SILVA",
+    "cargo": "Técnicos em Pintura II",
+    "gestor": "ALEX GUSMÃO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "PINTURA",
+    "assistente": false
+  },
+  {
+    "id": "32884",
+    "nome": "RENATO PEREIRA DE SOUZA",
+    "cargo": "Técnicos em Pintura I",
+    "gestor": "ALEX GUSMÃO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "PINTURA",
+    "assistente": false
+  },
+  {
+    "id": "8789",
+    "nome": "RODRIGO ALMEIDA DOS REIS",
+    "cargo": "Técnicos em Pintura IV",
+    "gestor": "ALEX GUSMÃO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "PINTURA",
+    "assistente": false
+  },
+  {
+    "id": "28769",
+    "nome": "SIDNEI DA SILVA MOREIRA",
+    "cargo": "Técnicos em Pintura II",
+    "gestor": "ALEX GUSMÃO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "PINTURA",
+    "assistente": false
+  },
+  {
+    "id": "27623",
+    "nome": "SERGIO FERNANDO DA SILVA VIEIRA",
+    "cargo": "Auxiliar Administrativo",
+    "gestor": "JORGE ANDRE GONÇALVES PALMA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "31733",
+    "nome": "ALEXANDRE MACHADO MAGALHÃES",
+    "cargo": "Pedreiro",
+    "gestor": "JORGE ANDRE GONÇALVES PALMA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "32764",
+    "nome": "VITÓRIA CAROLINE DA SILVA NASCIMENTO",
+    "cargo": "Auxiliar Administrativo",
+    "gestor": "JORGE ANDRE GONÇALVES PALMA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "11917",
+    "nome": "GILBERTO FRANCO ZACARIAS",
+    "cargo": "Supervisor",
+    "gestor": "DOUGLAS GUTYERRES RIBEIRO DE SOUZA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "31732",
+    "nome": "ADRIANO FRANCO",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "28773",
+    "nome": "ALAN DA CRUZ CHRISPIM",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32862",
+    "nome": "ALEXSANDRO BARBOSA DE SOUZA",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "33000",
+    "nome": "ANTÔNIO ANDRADE DAVI",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "28831",
+    "nome": "DANIEL LORRETE DA SILVA",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "23939",
+    "nome": "EDMILSON LEMOS DA SILVA FERREIRA",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32691",
+    "nome": "GILMAR DE SOUSA CÂMARA",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32681",
+    "nome": "ISAIAS EMANOEL PEREIRA DE SOUZA",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "31582",
+    "nome": "JULIANO PEREIRA MACEDO",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32011",
+    "nome": "LEANDRO SANTOS PEREIRA",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32012",
+    "nome": "LEONARDO CARVALHO HART",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32677",
+    "nome": "ROBSON DE OLIVEIRA SA JUNIOR",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "30206",
+    "nome": "RODRIGO DE CASTRO ALCANTARA",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "14326",
+    "nome": "ROGERIO GOMES DOS SANTOS",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "21729",
+    "nome": "THIAGO SILVA DE ARRUDA",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "11908",
+    "nome": "ROBSON CARDOSO ALVES",
+    "cargo": "Técnicos de Caldeiraria IV",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32605",
+    "nome": "ALLAN DA SILVA COSTA",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32004",
+    "nome": "CESAR ARAÚJO DE ANDRADE",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32855",
+    "nome": "COSME DAMIÃO DOS SANTOS MACHADO",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32678",
+    "nome": "DENYS HELVIO SALLES",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32006",
+    "nome": "FRANCISCO DE ASSIS BARBOSA DE OLIVEIRA JUNIOR",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32854",
+    "nome": "GILMAR SILVA DE PAIVA",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32864",
+    "nome": "JEAN LUIZ DO CARMO MELLO",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32669",
+    "nome": "JOSE CARLOS CANTUARIA DA SILVA",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32869",
+    "nome": "WANDERLEI FERREIRA",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32594",
+    "nome": "WESLEY SOARES LIMA",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "33010",
+    "nome": "JHONATAN ALEXANDRE DA COSTA CONCEIÇÃO",
+    "cargo": "Técnicos em Solda II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "SOLDA",
+    "assistente": false
+  },
+  {
+    "id": "25865",
+    "nome": "LEANDRO MARCHINI",
+    "cargo": "Técnicos em Solda III",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "SOLDA",
+    "assistente": false
+  },
+  {
+    "id": "24055",
+    "nome": "MARCIELIO FERNANDES AMANCIO",
+    "cargo": "Técnicos em Solda III",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "SOLDA",
+    "assistente": false
+  },
+  {
+    "id": "16837",
+    "nome": "ROBSON TEIXEIRA GOMES",
+    "cargo": "Técnicos em Solda III",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "SOLDA",
+    "assistente": false
+  },
+  {
+    "id": "10745",
+    "nome": "ANDRE ALVES DOS SANTOS",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "30604",
+    "nome": "BERNARDO DA SILVA BEZERRA",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "90075",
+    "nome": "CAUA NEVES ARAÚJO",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "32095",
+    "nome": "DIOGO DOS SANTOS FARIA",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "90056",
+    "nome": "DOUGLAS PINHEIRO DA SILVA",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "32167",
+    "nome": "ELIESER DE AMORIM FERNANDES",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "16296",
+    "nome": "FAGNER DOMICIOLI",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "90055",
+    "nome": "GUILHERME CAETANO DE ALMEIDA",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "32615",
+    "nome": "JOSE MILTON DOS SANTOS SOUZA",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "32485",
+    "nome": "LEONARDO FONSECA SANTOS",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "32183",
+    "nome": "RODRIGO DA SILVA DIAS",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "90074",
+    "nome": "SAULO PINHEIRO DE OLIVEIRA",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "29226",
+    "nome": "BRUNO DOS SANTOS POVOAS",
+    "cargo": "Alpinista N1 Pintor",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ALPINISMO",
+    "assistente": false
+  },
+  {
+    "id": "30325",
+    "nome": "CRISTIAN HOTON BATISTA RIGUEIRO MORENO",
+    "cargo": "Alpinista N1 Pintor",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ALPINISMO",
+    "assistente": false
+  },
+  {
+    "id": "28756",
+    "nome": "HERISON LUIZ DA SILVA SOUZA",
+    "cargo": "Alpinista N3 Pintor",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ALPINISMO",
+    "assistente": false
+  },
+  {
+    "id": "28759",
+    "nome": "JOÃO ANTONIO DOS SANTOS MATHIAS",
+    "cargo": "Alpinista N3 Pintor",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ALPINISMO",
+    "assistente": false
+  },
+  {
+    "id": "31682",
+    "nome": "LUCAS BENEVENTE MACHADO",
+    "cargo": "Alpinista N1 Pintor",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ALPINISMO",
+    "assistente": false
+  },
+  {
+    "id": "32776",
+    "nome": "LUCAS DA SILVA DE MELO",
+    "cargo": "Alpinista N1 Pintor",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ALPINISMO",
+    "assistente": false
+  },
+  {
+    "id": "29062",
+    "nome": "DAVID SANTOS RAMOS",
+    "cargo": "Pedreiro",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CIVIL",
+    "assistente": false
+  },
+  {
+    "id": "28772",
+    "nome": "SALES GUILHERME BORBA",
+    "cargo": "Pedreiro",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CIVIL",
+    "assistente": false
+  },
+  {
+    "id": "32548",
+    "nome": "VICTOR FERREIRA PEREIRA",
+    "cargo": "Técnicos em Isolamento IV",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ISOLAMENTO",
+    "assistente": false
+  },
+  {
+    "id": "32153",
+    "nome": "ALEXANDRE ALVES DA ROCHA",
+    "cargo": "Técnicos em Isolamento III",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ISOLAMENTO",
+    "assistente": false
+  },
+  {
+    "id": "33532",
+    "nome": "CARLOS ALBERTO SABINO",
+    "cargo": "Técnicos em Isolamento III",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ISOLAMENTO",
+    "assistente": false
+  },
+  {
+    "id": "33529",
+    "nome": "FELIPE MAIA VANDERLEI",
+    "cargo": "Técnicos em Isolamento II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ISOLAMENTO",
+    "assistente": false
+  },
+  {
+    "id": "25712",
+    "nome": "JAILSON QUEIROZ DA SILVA",
+    "cargo": "Técnicos em Isolamento III",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ISOLAMENTO",
+    "assistente": false
+  },
+  {
+    "id": "29011",
+    "nome": "RENATO PEREIRA DE CARVALHO",
+    "cargo": "Técnicos em Isolamento II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ISOLAMENTO",
+    "assistente": false
+  },
+  {
+    "id": "28442",
+    "nome": "RONALDO DOS SANTOS",
+    "cargo": "Técnicos em Isolamento III",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ISOLAMENTO",
+    "assistente": false
+  },
+  {
+    "id": "25524",
+    "nome": "ALEXANDRE DE SOUZA NOGUEIRA",
+    "cargo": "Técnicos em Mecânica III",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "33531",
+    "nome": "ANDERSON GONCALVES DOS PASSOS",
+    "cargo": "Técnicos em Mecânica I",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "31115",
+    "nome": "ANTONIO JORGE MACHADO FIGUEIREDO",
+    "cargo": "Técnicos em Mecânica IV",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "33534",
+    "nome": "GUSTAVO AUGUSTO CANDIDO DA SILVA",
+    "cargo": "Técnicos em Mecânica II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "27347",
+    "nome": "JULIO CESAR DA SILVA DUARTE",
+    "cargo": "Técnicos em Mecânica III",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "8857",
+    "nome": "UBIRACIMAR ARAGAO PIRES",
+    "cargo": "Técnicos em Mecânica III",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "33458",
+    "nome": "VANDERLEI PEREIRA PERFEITO",
+    "cargo": "Técnicos em Mecânica IV",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "90061",
+    "nome": "WAGNER FERNANDO BRAZ DOS ANJOS",
+    "cargo": "Técnicos em Mecânica III",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "32174",
+    "nome": "LUAN CUNHA DA SILVA",
+    "cargo": "Técnicos em Pintura II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "PINTURA",
+    "assistente": false
+  },
+  {
+    "id": "90073",
+    "nome": "NELSON BINOTE NETO",
+    "cargo": "Técnicos em Pintura II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "PINTURA",
+    "assistente": false
+  },
+  {
+    "id": "28642",
+    "nome": "VAGNER BALBINO DA SILVA",
+    "cargo": "Técnicos em Pintura II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "PINTURA",
+    "assistente": false
+  },
+  {
+    "id": "31588",
+    "nome": "VALÉRIO ELIAS PENNA",
+    "cargo": "Técnicos em Pintura II",
+    "gestor": "GILBERTO FRANCO ZACARIAS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "PINTURA",
+    "assistente": false
+  },
+  {
+    "id": "30923",
+    "nome": "JULIANA AUGUSTINHO DIAS",
+    "cargo": "Técnico em Planejamento",
+    "gestor": "DOUGLAS GUTYERRES RIBEIRO DE SOUZA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "31674",
+    "nome": "FERNANDA ALVES CARLOTO DE MOURA",
+    "cargo": "Auxiliar Administrativo",
+    "gestor": "DOUGLAS GUTYERRES RIBEIRO DE SOUZA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "31584",
+    "nome": "LINDOMAR LUIS TIBURSKI",
+    "cargo": "Supervisor",
+    "gestor": "A CONTRATAR (coordenador)",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "23411",
+    "nome": "ANDRE PASSOS DE SOUZA",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "LINDOMAR LUIS TIBURSKI",
+    "gestorId": "",
+    "disciplina": "ADMB",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "32616",
+    "nome": "DIEGO DA SILVA MARQUES FERREIRA",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "LINDOMAR LUIS TIBURSKI",
+    "gestorId": "",
+    "disciplina": "ADMB",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "9230",
+    "nome": "FABIO VAZ LIMA",
+    "cargo": "Técnicos em Acessos III",
+    "gestor": "LINDOMAR LUIS TIBURSKI",
+    "gestorId": "",
+    "disciplina": "ADMB",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "31435",
+    "nome": "JOCIMAR FERNANDES TOMÁZ",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "LINDOMAR LUIS TIBURSKI",
+    "gestorId": "",
+    "disciplina": "ADMB",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "24056",
+    "nome": "BRUNO DA SILVA BARBOZA",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "LINDOMAR LUIS TIBURSKI",
+    "gestorId": "",
+    "disciplina": "ADMB",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "15177",
+    "nome": "CARLOS ANTONIO MEIRELES DA SILVA",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "LINDOMAR LUIS TIBURSKI",
+    "gestorId": "",
+    "disciplina": "ADMB",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "28633",
+    "nome": "LUCIANO PARAISO DA SILVA LIMA",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "LINDOMAR LUIS TIBURSKI",
+    "gestorId": "",
+    "disciplina": "ADMB",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "26375",
+    "nome": "OZEIAS DE SOUZA ALVES",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "LINDOMAR LUIS TIBURSKI",
+    "gestorId": "",
+    "disciplina": "ADMB",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "28766",
+    "nome": "RAFAEL TEIXEIRA LEITE",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "LINDOMAR LUIS TIBURSKI",
+    "gestorId": "",
+    "disciplina": "ADMB",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "17880",
+    "nome": "WALLACE SILVA DE MOURA",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "LINDOMAR LUIS TIBURSKI",
+    "gestorId": "",
+    "disciplina": "ADMB",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "26372",
+    "nome": "EDIRLEI RIBEIRO",
+    "cargo": "Técnicos em Elétrica IV",
+    "gestor": "LINDOMAR LUIS TIBURSKI",
+    "gestorId": "",
+    "disciplina": "ADMB",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "16466",
+    "nome": "LEONARDO FERREIRA DA SILVA",
+    "cargo": "Técnicos em Elétrica IV",
+    "gestor": "LINDOMAR LUIS TIBURSKI",
+    "gestorId": "",
+    "disciplina": "ADMB",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "17735",
+    "nome": "ALEXANDER DE OLIVEIRA RAMALHO",
+    "cargo": "Técnicos em Instrumentação IV",
+    "gestor": "LINDOMAR LUIS TIBURSKI",
+    "gestorId": "",
+    "disciplina": "ADMB",
+    "equipe": "INSTRUMENTAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "22976",
+    "nome": "DANIEL SILVA DAMASIO",
+    "cargo": "Técnicos em Instrumentação I",
+    "gestor": "LINDOMAR LUIS TIBURSKI",
+    "gestorId": "",
+    "disciplina": "ADMB",
+    "equipe": "INSTRUMENTAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "33533",
+    "nome": "ALLAN MAGALHAES DE SOUSA",
+    "cargo": "Técnicos em Mecânica II",
+    "gestor": "LINDOMAR LUIS TIBURSKI",
+    "gestorId": "",
+    "disciplina": "ADMB",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "27597",
+    "nome": "GILVAN AUGUSTO ALEXANDRE",
+    "cargo": "Técnicos em Mecânica IV",
+    "gestor": "LINDOMAR LUIS TIBURSKI",
+    "gestorId": "",
+    "disciplina": "ADMB",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "32890",
+    "nome": "FÁBIO NASCIMENTO DA SILVA",
+    "cargo": "Técnicos em Solda II",
+    "gestor": "LINDOMAR LUIS TIBURSKI",
+    "gestorId": "",
+    "disciplina": "ADMB",
+    "equipe": "SOLDA",
+    "assistente": false
+  },
+  {
+    "id": "29496",
+    "nome": "JOSE ROBERTO RIBEIRO",
+    "cargo": "Técnico de Segurança",
+    "gestor": "LINDOMAR LUIS TIBURSKI",
+    "gestorId": "",
+    "disciplina": "ADMB",
+    "equipe": "SSMA",
+    "assistente": false
+  },
+  {
+    "id": "8905",
+    "nome": "RODNEY NOGUEIRA LANA",
+    "cargo": "Técnicos de Caldeiraria IV",
+    "gestor": "A CONTRATAR (coordenador)",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "28884",
+    "nome": "PAULO ROBERTO SOARES DE OLIVEIRA",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "RODNEY NOGUEIRA LANA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "23640",
+    "nome": "ROBISON CARNEIRO DA SILVA",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "RODNEY NOGUEIRA LANA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "17163",
+    "nome": "ALEXANDRO PAULO DA SILVA",
+    "cargo": "Técnicos em Elétrica III",
+    "gestor": "RODNEY NOGUEIRA LANA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "32880",
+    "nome": "RAPHAEL DE BARROS FERNANDES",
+    "cargo": "Técnicos em Instrumentação II",
+    "gestor": "RODNEY NOGUEIRA LANA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "INSTRUMENTAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "8815",
+    "nome": "MARCOS ROBERTO SILVA DE ARAUJO",
+    "cargo": "Técnicos em Isolamento III",
+    "gestor": "RODNEY NOGUEIRA LANA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ISOLAMENTO",
+    "assistente": false
+  },
+  {
+    "id": "33463",
+    "nome": "ADEUSO DE FREITAS MOREIRA",
+    "cargo": "Técnicos em Mecânica II",
+    "gestor": "RODNEY NOGUEIRA LANA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "15525",
+    "nome": "ISRAEL DOS SANTOS FAUSTINO",
+    "cargo": "Técnicos em Mecânica II",
+    "gestor": "RODNEY NOGUEIRA LANA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "12502",
+    "nome": "ELIAS SILVA PINTO DA CRUZ",
+    "cargo": "Técnicos em Pintura II",
+    "gestor": "RODNEY NOGUEIRA LANA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "PINTURA",
+    "assistente": false
+  },
+  {
+    "id": "8873",
+    "nome": "DICIMAR JOSE SOARES",
+    "cargo": "Técnicos de Caldeiraria IV",
+    "gestor": "A CONTRATAR (coordenador)",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "8863",
+    "nome": "JOSE CARLOS SOARES DE OLIVEIRA",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "DICIMAR JOSE SOARES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "8884",
+    "nome": "VALTAIR FIRMIANO",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "DICIMAR JOSE SOARES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "8856",
+    "nome": "EDSON CAETANO DA SILVA",
+    "cargo": "Técnicos em Elétrica IV",
+    "gestor": "DICIMAR JOSE SOARES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "90062",
+    "nome": "EDSON DE SOUZA ALMEIDA",
+    "cargo": "Técnicos em Instrumentação I",
+    "gestor": "DICIMAR JOSE SOARES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "INSTRUMENTAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "26786",
+    "nome": "ERIQUE LUIS SANTOS DA SILVA",
+    "cargo": "Técnicos em Isolamento IV",
+    "gestor": "DICIMAR JOSE SOARES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ISOLAMENTO",
+    "assistente": false
+  },
+  {
+    "id": "32405",
+    "nome": "RONALDO MELO DE CARVALHO",
+    "cargo": "Técnicos em Mecânica III",
+    "gestor": "DICIMAR JOSE SOARES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "32009",
+    "nome": "JOSE LUIS GONÇALVES SAMPAIO",
+    "cargo": "Técnicos em Mecânica I",
+    "gestor": "DICIMAR JOSE SOARES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "29009",
+    "nome": "MATHEUS DE OLIVEIRA DE BARROS BONAN",
+    "cargo": "Técnicos em Pintura II",
+    "gestor": "DICIMAR JOSE SOARES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "PINTURA",
+    "assistente": false
+  },
+  {
+    "id": "9750",
+    "nome": "RICARDO DE OLIVEIRA MACHADO",
+    "cargo": "Técnicos de Caldeiraria IV",
+    "gestor": "A CONTRATAR (coordenador)",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "17860",
+    "nome": "LEANDRO JOSE DOS SANTOS",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "RICARDO DE OLIVEIRA MACHADO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "9840",
+    "nome": "SANDRO AUGUSTO DE ANDRADE",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "RICARDO DE OLIVEIRA MACHADO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32182",
+    "nome": "ROBSON AUGUSTO ANTUNES",
+    "cargo": "Técnicos em Elétrica III",
+    "gestor": "RICARDO DE OLIVEIRA MACHADO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "24150",
+    "nome": "CARLOS SOARES DE PAIVA NETO",
+    "cargo": "Técnicos em Instrumentação III",
+    "gestor": "RICARDO DE OLIVEIRA MACHADO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "INSTRUMENTAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "29885",
+    "nome": "GUILHERME MENDES DA SILVA",
+    "cargo": "Técnicos em Isolamento III",
+    "gestor": "RICARDO DE OLIVEIRA MACHADO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ISOLAMENTO",
+    "assistente": false
+  },
+  {
+    "id": "22421",
+    "nome": "EDSON NEVES BATISTA",
+    "cargo": "Técnicos em Mecânica III",
+    "gestor": "RICARDO DE OLIVEIRA MACHADO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "31820",
+    "nome": "FABRICIO SANTOS DO AMOR DIVINO",
+    "cargo": "Técnicos em Mecânica II",
+    "gestor": "RICARDO DE OLIVEIRA MACHADO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "32170",
+    "nome": "FABIO FRANCISCO DE SOUZA",
+    "cargo": "Técnicos em Pintura II",
+    "gestor": "RICARDO DE OLIVEIRA MACHADO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "PINTURA",
+    "assistente": false
+  },
+  {
+    "id": "32596",
+    "nome": "CARLOS ALESSANDRO PEREGRINO DE MELO",
+    "cargo": "Técnicos de Caldeiraria IV",
+    "gestor": "A CONTRATAR (coordenador)",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "17677",
+    "nome": "EDVALDO GOMES DOS SANTOS",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "CARLOS ALESSANDRO PEREGRINO DE MELO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "9841",
+    "nome": "PEDRO DE OLIVEIRA CARVALHO",
+    "cargo": "Técnicos de Caldeiraria III",
+    "gestor": "CARLOS ALESSANDRO PEREGRINO DE MELO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "10913",
+    "nome": "ANDRE RIBEIRO DA SILVA",
+    "cargo": "Técnicos em Elétrica IV",
+    "gestor": "CARLOS ALESSANDRO PEREGRINO DE MELO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "30771",
+    "nome": "RUAN HORTA BITENCOURT",
+    "cargo": "Técnicos em Instrumentação I",
+    "gestor": "CARLOS ALESSANDRO PEREGRINO DE MELO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "INSTRUMENTAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "26370",
+    "nome": "CELIO ELIAS LEMOS",
+    "cargo": "Técnicos em Isolamento III",
+    "gestor": "CARLOS ALESSANDRO PEREGRINO DE MELO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ISOLAMENTO",
+    "assistente": false
+  },
+  {
+    "id": "33464",
+    "nome": "GARDNER MORAIS CRUZ",
+    "cargo": "Técnicos em Mecânica II",
+    "gestor": "CARLOS ALESSANDRO PEREGRINO DE MELO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "32015",
+    "nome": "RENATO FELIPE COSTA",
+    "cargo": "Técnicos em Mecânica II",
+    "gestor": "CARLOS ALESSANDRO PEREGRINO DE MELO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "MECÂNICA",
+    "assistente": false
+  },
+  {
+    "id": "9451",
+    "nome": "FERNANDO FERNANDES DOS SANTOS",
+    "cargo": "Técnicos em Pintura II",
+    "gestor": "CARLOS ALESSANDRO PEREGRINO DE MELO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "PINTURA",
+    "assistente": false
+  },
+  {
+    "id": "27915",
+    "nome": "ADDSON DE ARAUJO TAVARES",
+    "cargo": "Auxiliar Planejamento",
+    "gestor": "JORGE ANDRE GONÇALVES PALMA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "8848",
+    "nome": "GILBERTO MARCELINO NETO",
+    "cargo": "Alpinista N1 Inspeção de Equipamentos",
+    "gestor": "PAULO JOSE MENEZES DE BRITO JUNIOR",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "INSPEÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "28623",
+    "nome": "JAGUARY ARAUJO FRANCISCO DOS SANTOS",
+    "cargo": "ALPINISTA N2 ISOLADOR",
+    "gestor": "PAULO JOSE MENEZES DE BRITO JUNIOR",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "INSPEÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "28859",
+    "nome": "JEFFERSON CASSIANO DA SILVA",
+    "cargo": "Alpinista N1 Inspeção de Equipamentos",
+    "gestor": "PAULO JOSE MENEZES DE BRITO JUNIOR",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "INSPEÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "28634",
+    "nome": "LUIS CARLOS FERREIRA SARDINHA",
+    "cargo": "ALPINISTA N2 ISOLADOR",
+    "gestor": "PAULO JOSE MENEZES DE BRITO JUNIOR",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "INSPEÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "17294",
+    "nome": "ALCIMAR DA SILVA LIMA",
+    "cargo": "Técnicos em Instrumentação IV",
+    "gestor": "PAULO JOSE MENEZES DE BRITO JUNIOR",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "INSPEÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "23418",
+    "nome": "FELIPE DE JESUS BATISTA",
+    "cargo": "Técnico em Planejamento",
+    "gestor": "DANILO AFONSO ROCHA DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "Planejamento",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "24256",
+    "nome": "DERLAINE DA SILVA OLIVEIRA",
+    "cargo": "Auxiliares Técnicos",
+    "gestor": "FELIPE DE JESUS BATISTA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "27024",
+    "nome": "RUAN LEMOS DA CRUZ",
+    "cargo": "Auxiliares Técnicos",
+    "gestor": "FELIPE DE JESUS BATISTA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "24257",
+    "nome": "EMANUEL DOS SANTOS MATOS",
+    "cargo": "Auxiliar Planejamento",
+    "gestor": "FELIPE DE JESUS BATISTA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "28770",
+    "nome": "VINICIUS WILLIAM DA SILVA CARNEIRO",
+    "cargo": "Auxiliar Planejamento",
+    "gestor": "FELIPE DE JESUS BATISTA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "31432",
+    "nome": "FELIPE OLIVEIRA GOMES",
+    "cargo": "Auxiliar Planejamento",
+    "gestor": "FELIPE DE JESUS BATISTA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "26179",
+    "nome": "JESSYCA RICARDO RIBEIRO",
+    "cargo": "Auxiliar Planejamento",
+    "gestor": "FELIPE DE JESUS BATISTA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "32001",
+    "nome": "ANA JULIA FELICIO SIMOA",
+    "cargo": "Auxiliar Administrativo",
+    "gestor": "JESSYCA RICARDO RIBEIRO",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "32013",
+    "nome": "MARIA DRIELE FELIX DA SILVA",
+    "cargo": "Auxiliar Administrativo",
+    "gestor": "FELIPE OLIVEIRA GOMES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "32543",
+    "nome": "HERNANE SALGADO DA SILVA",
+    "cargo": "Coordenador",
+    "gestor": "DANILO AFONSO ROCHA DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "SSMA",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "32176",
+    "nome": "LUIZ OTAVIO VICENTE DA SILVA",
+    "cargo": "Técnico de Segurança",
+    "gestor": "HERNANE SALGADO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "32089",
+    "nome": "MICHELE DE SOUZA GUEDES DA SILVA",
+    "cargo": "Técnico de Segurança",
+    "gestor": "HERNANE SALGADO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "32891",
+    "nome": "RAQUEL DE OLIVEIRA DA CRUZ",
+    "cargo": "Técnico de Segurança",
+    "gestor": "HERNANE SALGADO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "31116",
+    "nome": "LUCIANO ALVES DE SOUZA ALMEIDA",
+    "cargo": "Técnico de Segurança",
+    "gestor": "HERNANE SALGADO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "11698",
+    "nome": "SAMANTA DE MATTOS TEIXEIRA",
+    "cargo": "Técnico de Segurança",
+    "gestor": "HERNANE SALGADO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "31118",
+    "nome": "VITOR ALMEIDA GRUBER",
+    "cargo": "Técnico de Segurança",
+    "gestor": "HERNANE SALGADO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "27965",
+    "nome": "THAIANE SIMÃO SOUSA",
+    "cargo": "PSICOLOGA",
+    "gestor": "HERNANE SALGADO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "29376",
+    "nome": "PEDRO VICTOR PEREIRA DE ARAUJO",
+    "cargo": "Auxiliar Administrativo",
+    "gestor": "HERNANE SALGADO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "27623",
+    "nome": "SERGIO FERNANDO DA SILVA VIEIRA",
+    "cargo": "Auxiliar Administrativo",
+    "gestor": "HERNANE SALGADO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "27916",
+    "nome": "VANESSA SAYEGH LONGO DE SOUZA",
+    "cargo": "Auxiliar Administrativo",
+    "gestor": "HERNANE SALGADO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "32689",
+    "nome": "DANIELLA AMANCIO DA SILVA",
+    "cargo": "Auxiliar Administrativo",
+    "gestor": "HERNANE SALGADO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "90063",
+    "nome": "NATALIA DO PRADO MARTINS",
+    "cargo": "Auxiliar Administrativo",
+    "gestor": "HERNANE SALGADO DA SILVA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "16812",
+    "nome": "LUCIANA DOS REIS ALVES",
+    "cargo": "Supervisor Administrativo",
+    "gestor": "DANILO AFONSO ROCHA DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "RH",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "12006",
+    "nome": "MARILIA ARCANJO VIANA",
+    "cargo": "Auxiliares Técnicos",
+    "gestor": "LUCIANA DOS REIS ALVES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "27392",
+    "nome": "RAQUEL ARAUJO DE SOUZA COELHO",
+    "cargo": "Auxiliares Técnicos",
+    "gestor": "LUCIANA DOS REIS ALVES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "26180",
+    "nome": "NAIANE DE SOUZA DA SILVA",
+    "cargo": "ASSISTENTE DE COMPRAS",
+    "gestor": "LUCIANA DOS REIS ALVES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "30199",
+    "nome": "ALICE LORENA DO NASCIMENTO SILVA",
+    "cargo": "Auxiliar Administrativo",
+    "gestor": "LUCIANA DOS REIS ALVES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "30200",
+    "nome": "ANDREZA DOS SANTOS PAIVA",
+    "cargo": "Auxiliar Administrativo",
+    "gestor": "LUCIANA DOS REIS ALVES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "31675",
+    "nome": "JULIANA CARVALHO DA SILVA",
+    "cargo": "Auxiliar Administrativo",
+    "gestor": "LUCIANA DOS REIS ALVES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "27083",
+    "nome": "CARLOS EDUARDO CARDOSO DE JESUS",
+    "cargo": "Coordenador",
+    "gestor": "DANILO AFONSO ROCHA DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "DEP",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "22582",
+    "nome": "ALEX SANDRO VIEIRA SALDANHA",
+    "cargo": "Supervisor",
+    "gestor": "CARLOS EDUARDO CARDOSO DE JESUS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "32591",
+    "nome": "CRISTIAN CORRÊA LIMA",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "32476",
+    "nome": "ELISMAR CORRÊA MARTINS",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "11545",
+    "nome": "JEFFERSON ESTEVES",
+    "cargo": "Técnicos em Acessos III",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "32684",
+    "nome": "MARLLON VIANA BARRETO",
+    "cargo": "Técnicos em Acessos II",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ACESSOS",
+    "assistente": false
+  },
+  {
+    "id": "32597",
+    "nome": "FILIPE SOBRINHO DE ATAIDE",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "31583",
+    "nome": "KLEBERSON RAMOS MORAES",
+    "cargo": "Técnicos de Caldeiraria IV",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32876",
+    "nome": "LUIZ COSTA DOS SANTOS",
+    "cargo": "Técnicos de Caldeiraria IV",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "32490",
+    "nome": "OSMAR CASTILHO MARINHO",
+    "cargo": "Técnicos de Caldeiraria II",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "14324",
+    "nome": "ROBSON DE SOUZA BARRETO",
+    "cargo": "Técnicos de Caldeiraria IV",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "18009",
+    "nome": "WALLACE JOSE BANDEIRA",
+    "cargo": "Técnicos de Caldeiraria IV",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "CALDEIRARIA",
+    "assistente": false
+  },
+  {
+    "id": "31679",
+    "nome": "FABIO DOS SANTOS BATISTA",
+    "cargo": "Técnicos em Elétrica IV",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "26371",
+    "nome": "FLEDSON DE SOUZA SILVA",
+    "cargo": "Técnicos em Elétrica IV",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "32488",
+    "nome": "MARCOS ANTONIO DE ASSIS SOUZA",
+    "cargo": "Técnicos em Elétrica IV",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "32014",
+    "nome": "PAULO SÉRGIO DA SILVA",
+    "cargo": "Técnicos em Elétrica IV",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "31830",
+    "nome": "RONISON CARDOSO DOS REIS",
+    "cargo": "Técnicos em Elétrica IV",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "26186",
+    "nome": "VILCIMAR SOUZA RAMOS",
+    "cargo": "Técnicos em Elétrica IV",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "16480",
+    "nome": "WAGNER LUIS DE ABREU SOUSA",
+    "cargo": "Técnicos em Elétrica IV",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ELÉTRICA",
+    "assistente": false
+  },
+  {
+    "id": "32618",
+    "nome": "JOSÉ ELIAS DA SILVA SANTOS",
+    "cargo": "Técnicos em Isolamento IV",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ISOLAMENTO",
+    "assistente": false
+  },
+  {
+    "id": "27346",
+    "nome": "JOSE FIRMINO DA SILVA FILHO",
+    "cargo": "Técnicos em Instrumentação IV",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "INSTRUMENTAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "31680",
+    "nome": "LUIZ CARLOS CORREIA DE SOUZA JÚNIOR",
+    "cargo": "Técnicos em Instrumentação IV",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "INSTRUMENTAÇÃO",
+    "assistente": false
+  },
+  {
+    "id": "30829",
+    "nome": "JOSE LUIZ MOREIRA REIS",
+    "cargo": "Técnicos em Isolamento III",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ISOLAMENTO",
+    "assistente": false
+  },
+  {
+    "id": "26226",
+    "nome": "MARCUS VINICIUS SANTIAGO DE OLIVEIRA",
+    "cargo": "TECNICO DE QUALIDADE",
+    "gestor": "CARLOS EDUARDO CARDOSO DE JESUS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "28621",
+    "nome": "FERNANDO MEIRELES PERALVA",
+    "cargo": "Técnicos em Pintura II",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "PINTURA",
+    "assistente": false
+  },
+  {
+    "id": "31441",
+    "nome": "CARLOS ALBERTO DOS SANTOS SILVEIRA",
+    "cargo": "Técnicos em Solda III",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "SOLDA",
+    "assistente": false
+  },
+  {
+    "id": "27389",
+    "nome": "THIAGO GOMES MAZURKIEVICZ",
+    "cargo": "Técnico em Planejamento",
+    "gestor": "CARLOS EDUARDO CARDOSO DE JESUS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "31738",
+    "nome": "MATHEUS SANTOS DE MORAIS",
+    "cargo": "Auxiliar Administrativo",
+    "gestor": "CARLOS EDUARDO CARDOSO DE JESUS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "32008",
+    "nome": "IVAN COSTA TEXEIRA",
+    "cargo": "Técinico de Materiais",
+    "gestor": "CARLOS EDUARDO CARDOSO DE JESUS",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": true
+  },
+  {
+    "id": "32472",
+    "nome": "CLEISON DE AZEVEDO DOS SANTOS",
+    "cargo": "Inspeção de Solda",
+    "gestor": "ALEX SANDRO VIEIRA SALDANHA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "SOLDA",
+    "assistente": false
+  },
+  {
+    "id": "25199",
+    "nome": "IGOR SOARES PIRES",
+    "cargo": "Almoxarife",
+    "gestor": "LUCIANA DOS REIS ALVES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "27420",
+    "nome": "CLAUDIO RIBEIRO LEMOS",
+    "cargo": "Auxiliar Almoxarifado",
+    "gestor": "IGOR SOARES PIRES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ALMOXARIFE",
+    "assistente": false
+  },
+  {
+    "id": "25172",
+    "nome": "CLEITON MALAQUIAS CAMPOS",
+    "cargo": "Auxiliar Almoxarifado",
+    "gestor": "IGOR SOARES PIRES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ALMOXARIFE",
+    "assistente": false
+  },
+  {
+    "id": "29544",
+    "nome": "JULIO CESAR DA SILVA LYRA",
+    "cargo": "Auxiliar Almoxarifado",
+    "gestor": "IGOR SOARES PIRES",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "ALMOXARIFE",
+    "assistente": false
+  },
+  {
+    "id": "1",
+    "nome": "A CONTRATAR (coordenador)",
+    "cargo": "Coordenador",
+    "gestor": "DANILO AFONSO ROCHA DE OLIVEIRA",
+    "gestorId": "",
+    "disciplina": "ADMB / ILHAS",
+    "equipe": "",
+    "assistente": false
+  },
+  {
+    "id": "2",
+    "nome": "A CONTRATAR (supervisor)",
+    "cargo": "Supervisor",
+    "gestor": "DOUGLAS GUTYERRES RIBEIRO DE SOUZA",
+    "gestorId": "",
+    "disciplina": "",
+    "equipe": "",
+    "assistente": false
+  }
+]

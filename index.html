@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organograma Inteligente</title>
+
+  <!-- Libs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<header>
+  <div class="brand">
+    <h1>Organograma</h1><span class="badge">INTELIGENTE</span>
+  </div>
+
+  <div class="toolbar">
+    <button class="btn btn-outline" id="darkBtn" onclick="toggleDarkMode()">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+      Modo escuro
+    </button>
+
+    <label class="btn btn-outline" style="cursor:pointer;" title="Carregar logo para o PDF">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+        <polyline points="21 15 16 10 5 21"/>
+      </svg>
+      <span id="logoLabel">Logo PDF</span>
+      <input type="file" accept="image/*" style="display:none" onchange="handleLogoUpload(this)">
+    </label>
+    <img id="logoPreview" style="display:none;height:28px;border-radius:4px;border:1px solid rgba(255,255,255,0.3);" alt="logo">
+
+    <button class="btn btn-outline" onclick="loadCache()">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M20 6v6h-6"/><path d="M4 18a8 8 0 0 0 14.9-3"/>
+        <path d="M4 6v6h6"/><path d="M20 18a8 8 0 0 0-14.9 3"/>
+      </svg>
+      Reabrir cache
+    </button>
+
+    <button class="btn btn-outline" onclick="clearCache()">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 16H6L5 6"/>
+      </svg>
+      Limpar cache
+    </button>
+
+    <div class="toolbar-divider"></div>
+
+    <div class="toolbar" id="exportBar" style="display:none">
+      <div class="zoom-box">
+        <span class="zoom-pill" id="zoomPill">100%</span>
+        <input id="zoomRange" class="zoom-range" type="range" min="10" max="150" value="100"
+               oninput="applyZoom(this.value)">
+      </div>
+
+      <button class="btn btn-outline" onclick="exportPDFByCoordinator()">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+          <polyline points="14,2 14,8 20,8"/>
+        </svg>
+        Exportar PDF (Sumário + Coord.)
+      </button>
+
+
+
+      <button class="btn btn-accent" onclick="exportViewHTML()">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/>
+          <polyline points="16 6 12 2 8 6"/>
+          <line x1="12" y1="2" x2="12" y2="15"/>
+        </svg>
+        Gerar para Coordenadores
+      </button>
+
+      <button class="btn btn-outline" onclick="resetApp()">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.24"/>
+        </svg>
+        Nova Base
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="main">
+  <!-- UPLOAD -->
+  <div class="upload-section" id="uploadSection">
+    <div class="instructions">
+      <h3>Como usar</h3>
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <p>Baixe o modelo de planilha — já vem preenchido com exemplo completo.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <p>Preencha com os dados da sua empresa. Colunas disponíveis:<br>
+          <code>Nome</code>&nbsp;<code>Cargo</code>&nbsp;<code>Gestor</code>&nbsp;<code>Tipo</code>&nbsp;
+          <code>ID</code>&nbsp;<code>GestorID</code>
+        </p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <p><strong>Gestor</strong> = nome do chefe direto (vazio para o topo).<br>
+          <strong>Tipo</strong> = escreva <code>Assistente</code> para quem reporta ao gestor, mas aparece abaixo e deslocado.
+        </p>
+      </div>
+
+      <div class="info-box" id="cacheBox" style="display:none">
+        <div>
+          <strong>📌 Cache encontrado</strong>
+          <div id="cacheMeta">Existe uma base salva no navegador.</div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn btn-accent" onclick="loadCache()">Reabrir</button>
+          <button class="btn btn-outline-dark" onclick="clearCache()">Limpar</button>
+        </div>
+      </div>
+
+      <div class="warn-box" id="warnBox" style="display:none">
+        <strong>⚠️ Avisos</strong>
+        <ul id="warnList"></ul>
+      </div>
+
+      <button class="download-tpl" onclick="downloadTemplate()">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Baixar modelo de planilha (.xlsx)
+      </button>
+    </div>
+
+    <div class="upload-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+      <svg width="46" height="46" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+           style="color:var(--accent);margin-bottom:14px">
+        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+        <polyline points="14,2 14,8 20,8"/>
+        <line x1="12" y1="18" x2="12" y2="12"/>
+        <polyline points="9 15 12 12 15 15"/>
+      </svg>
+      <h2>Importar Planilha</h2>
+      <p>Clique ou arraste seu Excel (.xlsx) ou CSV</p>
+    </div>
+    <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" onchange="handleFile(event)">
+  </div>
+
+  <!-- CHART -->
+  <div id="chartSection" style="display:none">
+    <div class="status-bar" id="statusBar"></div>
+
+    <div class="filters-bar" id="filtersBar">
+      <div class="filter-group" style="min-width:220px">
+        <div class="filter-label">🔍 Buscar pessoa</div>
+        <div class="search-wrap">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+          </svg>
+          <input class="filter-input" id="searchInput" type="text" placeholder="Nome..." oninput="applySearch()">
+        </div>
+      </div>
+
+      <div class="filter-divider"></div>
+
+      <div class="filter-group">
+        <div class="filter-label">🏢 Filtrar por área</div>
+        <select class="filter-input" id="areaSelect" onchange="applyAreaFilter()">
+          <option value="">Todas as áreas</option>
+        </select>
+      </div>
+
+      <div class="filter-divider"></div>
+
+      <div class="filter-group">
+        <div class="filter-label">📊 Mostrar até nível</div>
+        <select class="filter-input" id="levelSelect" onchange="applyLevelFilter()">
+          <option value="99">Todos os níveis</option>
+        </select>
+      </div>
+
+      <div class="filter-divider"></div>
+
+      <div class="filter-group" style="min-width:auto">
+        <div class="filter-label">📂 Recolher</div>
+        <div style="display:flex;gap:6px">
+          <button class="filter-btn" onclick="expandAll()">Expandir tudo</button>
+          <button class="filter-btn" onclick="collapseAll()">Recolher tudo</button>
+        </div>
+      </div>
+
+      <button class="filter-btn" onclick="resetFilters()" style="align-self:flex-end;margin-left:auto">
+        ✕ Limpar filtros
+      </button>
+    </div>
+
+    <div class="legend">
+      <span class="legend-item">
+        <span class="leg-box" style="border:2px solid var(--border-strong);background:white"></span> Hierarquia normal
+      </span>
+      <span class="legend-item">
+        <span class="leg-box" style="border:2px dashed var(--asst);background:var(--asst-light)"></span> Assistente
+      </span>
+      <span class="legend-item">
+        <span class="leg-box" style="background:var(--green);border-radius:3px"></span> Equipe (último nível)
+      </span>
+      <span class="legend-item" style="color:var(--sub);font-size:0.78rem">
+        🖱️ Arraste para navegar • Scroll para zoom
+      </span>
+    </div>
+
+    <div class="chart-wrap" id="chartWrap">
+      <div id="orgChart"></div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

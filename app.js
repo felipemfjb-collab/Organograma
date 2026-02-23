@@ -693,7 +693,6 @@ function renderSubtree(node, depth, parentNode){
       });
 
       childrenEl.appendChild(cols);
-dChild(cols);
     }
 
     wrap.appendChild(childrenEl);

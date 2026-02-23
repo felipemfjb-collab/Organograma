@@ -430,14 +430,62 @@ body.dark .node{ background:rgba(20,24,39,0.95); }
 /* ═══════════════════════
    PRINT / PDF
 ═══════════════════════ */
+#print-header {
+  display: none;
+}
+
 @media print {
-  @page { size: landscape; margin: 10mm; }
+  @page { size: landscape; margin: 12mm 10mm 10mm 10mm; }
 
   header, .filters-bar, .legend, .status-bar, #errorMsg { display: none !important; }
 
   body { background: white !important; }
 
   .main { padding: 0 !important; }
+
+  /* Cabeçalho de impressão */
+  #print-header {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid #FF6600;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+  }
+  #print-header .ph-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  #print-header .ph-logo {
+    font-size: 28px;
+    font-weight: 900;
+    color: #1A1A2E;
+    letter-spacing: -1px;
+    font-family: 'DM Serif Display', serif;
+  }
+  #print-header .ph-divider {
+    width: 2px;
+    height: 44px;
+    background: #FF6600;
+  }
+  #print-header .ph-title {
+    font-size: 13px;
+    font-weight: 900;
+    color: #FF6600;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  #print-header .ph-right {
+    text-align: right;
+    font-size: 8px;
+    color: #555;
+    line-height: 1.8;
+  }
+  #print-header .ph-right strong {
+    color: #FF6600;
+    font-size: 9px;
+  }
 
   .chart-wrap {
     border: none !important;
@@ -448,18 +496,25 @@ body.dark .node{ background:rgba(20,24,39,0.95); }
     padding: 0 !important;
   }
 
-  #orgChart {
-    transform: none !important;
-  }
+  #orgChart { transform: none !important; }
 
   .node .collapse-btn { display: none !important; }
 
-  /* Força expansão de tudo */
   .subtree-children, .assistants-below { display: flex !important; }
 
-  /* Quebra de página automática se muito grande */
-  #orgChart { page-break-inside: auto; }
+  /* Rodapé */
+  #print-footer {
+    display: block !important;
+    text-align: center;
+    font-size: 7px;
+    color: #999;
+    margin-top: 10px;
+    border-top: 1px solid #eee;
+    padding-top: 4px;
+  }
 }
+
+#print-footer { display: none; }
 </style>
 </head>
 <body>
@@ -479,6 +534,17 @@ body.dark .node{ background:rgba(20,24,39,0.95); }
   </div>
 </header>
 
+<div id="print-header">
+  <div class="ph-left">
+    <div class="ph-logo">SGS</div>
+    <div class="ph-divider"></div>
+    <div class="ph-title" id="phTitle">Organograma</div>
+  </div>
+  <div class="ph-right" id="phRight">
+    <strong>Data:</strong> —<br>
+    <strong>Gerado por:</strong> Organograma SGS
+  </div>
+</div>
 <div class="main">
   <div class="status-bar" id="statusBar">
     <div class="stat" style="color:var(--sub)">⏳ Carregando organograma...</div>
@@ -1115,6 +1181,13 @@ function exportViewPDF() {
 
   // Set print title
   document.title = "SGS | " + areaText;
+
+  // Fill print header
+  var phTitle = document.getElementById("phTitle");
+  var phRight = document.getElementById("phRight");
+  var today = new Date().toLocaleDateString("pt-BR");
+  if(phTitle) phTitle.textContent = areaText;
+  if(phRight) phRight.innerHTML = "<strong>Data:</strong> " + today + "<br><strong>Gerado por:</strong> Organograma SGS";
   btn.textContent = "⏳ Gerando...";
   btn.disabled = true;
 
@@ -1145,5 +1218,6 @@ window.addEventListener("load",function(){
   if(data){initChart(data);}else{document.getElementById("statusBar").style.display="none";document.getElementById("errorMsg").style.display="";}
 });
 </script>
+<div id="print-footer">Organograma SGS — Apenas para uso interno</div>
 </body>
 </html>

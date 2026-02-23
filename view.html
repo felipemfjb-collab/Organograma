@@ -6,8 +6,6 @@
 <title>Organograma SGS</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="data.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -427,6 +425,40 @@ body.dark .node{ background:rgba(20,24,39,0.95); }
     height: 32px;
     font-size: .85rem;
   }
+}
+
+/* ═══════════════════════
+   PRINT / PDF
+═══════════════════════ */
+@media print {
+  @page { size: landscape; margin: 10mm; }
+
+  header, .filters-bar, .legend, .status-bar, #errorMsg { display: none !important; }
+
+  body { background: white !important; }
+
+  .main { padding: 0 !important; }
+
+  .chart-wrap {
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: unset !important;
+    padding: 0 !important;
+  }
+
+  #orgChart {
+    transform: none !important;
+  }
+
+  .node .collapse-btn { display: none !important; }
+
+  /* Força expansão de tudo */
+  .subtree-children, .assistants-below { display: flex !important; }
+
+  /* Quebra de página automática se muito grande */
+  #orgChart { page-break-inside: auto; }
 }
 </style>
 </head>
@@ -1076,89 +1108,35 @@ function initChart(data){
 
 function exportViewPDF() {
   const btn = document.getElementById("pdfBtn");
-  const chart = document.getElementById("orgChart");
-  if (!chart) return;
+  const areaEl = document.getElementById("areaSelect");
+  const areaText = (areaEl && areaEl.value && areaEl.selectedOptions[0])
+    ? areaEl.selectedOptions[0].text
+    : "Organograma Completo";
 
+  // Set print title
+  document.title = "SGS | " + areaText;
   btn.textContent = "⏳ Gerando...";
   btn.disabled = true;
 
-  // Get area name for title
-  const areaEl = document.getElementById("areaSelect");
-  const areaText = areaEl && areaEl.selectedOptions[0] ? areaEl.selectedOptions[0].text : "Organograma Completo";
-  const title = areaEl && areaEl.value ? areaText : "Organograma SGS";
-  const today = new Date().toLocaleDateString("pt-BR");
-
-  // Reset zoom temporarily for capture
+  // Reset zoom for print
   const zoomRange = document.getElementById("zoomRange");
   const currentZoom = zoomRange ? zoomRange.value : "100";
   applyZoom(100);
+  if(zoomRange) zoomRange.value = "100";
 
-  setTimeout(function() {
-    html2canvas(chart, {
-      scale: 2,
-      backgroundColor: "#FAF7F2",
-      useCORS: true,
-      logging: false,
-      scrollX: 0,
-      scrollY: 0,
-      width: chart.scrollWidth,
-      height: chart.scrollHeight
-    }).then(function(canvas) {
-      const { jsPDF } = window.jspdf;
-      const imgW = canvas.width;
-      const imgH = canvas.height;
-
-      // Landscape if wider than tall
-      const orientation = imgW > imgH ? "landscape" : "portrait";
-      const pdf = new jsPDF({ orientation: orientation, unit: "mm", format: "a4" });
-
-      const pageW = pdf.internal.pageSize.getWidth();
-      const pageH = pdf.internal.pageSize.getHeight();
-      const margin = 12;
-
-      // Header
-      pdf.setFillColor(26, 26, 46);
-      pdf.rect(0, 0, pageW, 18, "F");
-      pdf.setFontSize(11);
-      pdf.setTextColor(200, 133, 58);
-      pdf.setFont("helvetica","bold");
-      pdf.text("SGS  |  " + title, margin, 12);
-      pdf.setFontSize(8);
-      pdf.setTextColor(180, 180, 200);
-      pdf.setFont("helvetica","normal");
-      pdf.text("Gerado em " + today, pageW - margin, 12, { align: "right" });
-
-      // Chart image
-      const availW = pageW - margin * 2;
-      const availH = pageH - 18 - margin - 8;
-      const ratio = Math.min(availW / (imgW / 2), availH / (imgH / 2));
-      const drawW = (imgW / 2) * ratio;
-      const drawH = (imgH / 2) * ratio;
-      const x = (pageW - drawW) / 2;
-
-      pdf.addImage(canvas.toDataURL("image/png"), "PNG", x, 22, drawW, drawH);
-
-      // Footer
-      pdf.setFontSize(7);
-      pdf.setTextColor(150, 150, 170);
-      pdf.text("Organograma SGS — Apenas para uso interno", pageW / 2, pageH - 4, { align: "center" });
-
-      pdf.save("organograma-" + title.replace(/[^a-zA-Z0-9]/g,"-").toLowerCase() + ".pdf");
-
-      // Restore zoom
+  setTimeout(function(){
+    window.print();
+    // Restore after print dialog closes
+    setTimeout(function(){
       applyZoom(parseInt(currentZoom));
-      if (zoomRange) zoomRange.value = currentZoom;
-
+      if(zoomRange) zoomRange.value = currentZoom;
       btn.textContent = "⬇ Baixar PDF";
       btn.disabled = false;
-    }).catch(function(err) {
-      console.error("PDF error:", err);
-      btn.textContent = "⬇ Baixar PDF";
-      btn.disabled = false;
-      alert("Erro ao gerar PDF. Tente novamente.");
-    });
-  }, 200);
+      document.title = "Organograma SGS";
+    }, 1000);
+  }, 300);
 }
+
 
 window.addEventListener("load",function(){
   var data=null;

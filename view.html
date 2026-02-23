@@ -6,6 +6,8 @@
 <title>Organograma SGS</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="data.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -427,94 +429,9 @@ body.dark .node{ background:rgba(20,24,39,0.95); }
   }
 }
 
-/* ═══════════════════════
-   PRINT / PDF
-═══════════════════════ */
-#print-header {
-  display: none;
-}
-
-@media print {
-  @page { size: landscape; margin: 12mm 10mm 10mm 10mm; }
-
-  header, .filters-bar, .legend, .status-bar, #errorMsg { display: none !important; }
-
-  body { background: white !important; }
-
-  .main { padding: 0 !important; }
-
-  /* Cabeçalho de impressão */
-  #print-header {
-    display: flex !important;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 3px solid #FF6600;
-    padding-bottom: 8px;
-    margin-bottom: 12px;
-  }
-  #print-header .ph-left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  #print-header .ph-logo {
-    font-size: 28px;
-    font-weight: 900;
-    color: #1A1A2E;
-    letter-spacing: -1px;
-    font-family: 'DM Serif Display', serif;
-  }
-  #print-header .ph-divider {
-    width: 2px;
-    height: 44px;
-    background: #FF6600;
-  }
-  #print-header .ph-title {
-    font-size: 13px;
-    font-weight: 900;
-    color: #FF6600;
-    text-transform: uppercase;
-    letter-spacing: .04em;
-  }
-  #print-header .ph-right {
-    text-align: right;
-    font-size: 8px;
-    color: #555;
-    line-height: 1.8;
-  }
-  #print-header .ph-right strong {
-    color: #FF6600;
-    font-size: 9px;
-  }
-
-  .chart-wrap {
-    border: none !important;
-    box-shadow: none !important;
-    overflow: visible !important;
-    height: auto !important;
-    min-height: unset !important;
-    padding: 0 !important;
-  }
-
-  #orgChart { transform: none !important; }
-
-  .node .collapse-btn { display: none !important; }
-
-  .subtree-children, .assistants-below { display: flex !important; }
-
-  /* Rodapé */
-  #print-footer {
-    display: block !important;
-    text-align: center;
-    font-size: 7px;
-    color: #999;
-    margin-top: 10px;
-    border-top: 1px solid #eee;
-    padding-top: 4px;
-  }
-}
-
-#print-footer { display: none; }
+/* Print header - hidden by default */
+#print-header { display: none; }
+#print-footer { display: none; }}
 </style>
 </head>
 <body>
@@ -1173,41 +1090,120 @@ function initChart(data){
 }
 
 function exportViewPDF() {
-  const btn = document.getElementById("pdfBtn");
-  const areaEl = document.getElementById("areaSelect");
-  const areaText = (areaEl && areaEl.value && areaEl.selectedOptions[0])
+  var btn = document.getElementById("pdfBtn");
+  var areaEl = document.getElementById("areaSelect");
+  var areaText = (areaEl && areaEl.value && areaEl.selectedOptions[0])
     ? areaEl.selectedOptions[0].text
     : "Organograma Completo";
 
-  // Set print title
-  document.title = "SGS | " + areaText;
-
-  // Fill print header
-  var phTitle = document.getElementById("phTitle");
-  var phRight = document.getElementById("phRight");
-  var today = new Date().toLocaleDateString("pt-BR");
-  if(phTitle) phTitle.textContent = areaText;
-  if(phRight) phRight.innerHTML = "<strong>Data:</strong> " + today + "<br><strong>Gerado por:</strong> Organograma SGS";
   btn.textContent = "⏳ Gerando...";
   btn.disabled = true;
 
-  // Reset zoom for print
-  const zoomRange = document.getElementById("zoomRange");
-  const currentZoom = zoomRange ? zoomRange.value : "100";
+  // Reset zoom para captura
+  var zoomRange = document.getElementById("zoomRange");
+  var currentZoom = zoomRange ? zoomRange.value : "100";
   applyZoom(100);
   if(zoomRange) zoomRange.value = "100";
 
+  // Preenche cabeçalho de impressão
+  var phTitle = document.getElementById("phTitle");
+  var phRight = document.getElementById("phRight");
+  var today = new Date().toLocaleDateString("pt-BR") + ", " + new Date().toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"});
+  if(phTitle) phTitle.textContent = areaText;
+  if(phRight) phRight.innerHTML = "<strong>Data:</strong> " + today + "<br><strong>Gerado por:</strong> Organograma SGS";
+
+  // Mostra o print-header temporariamente para captura
+  var ph = document.getElementById("print-header");
+  var pf = document.getElementById("print-footer");
+  if(ph) ph.style.display = "flex";
+  if(pf) pf.style.display = "block";
+
+  // Oculta elementos desnecessários
+  var toHide = ["filtersBar","legendBar","statusBar"];
+  var hidden = [];
+  toHide.forEach(function(id){
+    var el = document.getElementById(id);
+    if(el && el.style.display !== "none"){ el.style.display="none"; hidden.push(el); }
+  });
+
+  // Expande tudo
+  document.querySelectorAll(".subtree-children").forEach(function(el){ el.style.display=""; });
+  document.querySelectorAll(".assistants-below").forEach(function(el){ el.style.display=""; });
+
+  var captureEl = document.querySelector(".main");
+
   setTimeout(function(){
-    window.print();
-    // Restore after print dialog closes
-    setTimeout(function(){
+    html2canvas(captureEl, {
+      scale: 2,
+      backgroundColor: "#FAF7F2",
+      useCORS: true,
+      logging: false,
+      scrollX: -window.scrollX,
+      scrollY: -window.scrollY,
+      windowWidth: captureEl.scrollWidth,
+      windowHeight: captureEl.scrollHeight
+    }).then(function(canvas){
+      var imgW = canvas.width;
+      var imgH = canvas.height;
+      var orientation = imgW > imgH ? "landscape" : "portrait";
+      var { jsPDF } = window.jspdf;
+      var pdf = new jsPDF({ orientation: orientation, unit: "mm", format: "a4" });
+      var pageW = pdf.internal.pageSize.getWidth();
+      var pageH = pdf.internal.pageSize.getHeight();
+      var margin = 8;
+      var availW = pageW - margin * 2;
+      var availH = pageH - margin * 2;
+      var ratio = Math.min(availW / (imgW / 2), availH / (imgH / 2));
+      var drawW = (imgW / 2) * ratio;
+      var drawH = (imgH / 2) * ratio;
+      var x = (pageW - drawW) / 2;
+
+      // Se maior que uma página, divide em múltiplas
+      if(drawH <= availH){
+        pdf.addImage(canvas.toDataURL("image/png"), "PNG", x, margin, drawW, drawH);
+      } else {
+        // Múltiplas páginas
+        var pageImgH = Math.floor(availH / ratio * 2); // pixels por página
+        var pages = Math.ceil(imgH / pageImgH);
+        for(var p = 0; p < pages; p++){
+          if(p > 0) pdf.addPage();
+          var srcY = p * pageImgH;
+          var srcH = Math.min(pageImgH, imgH - srcY);
+          var tmpCanvas = document.createElement("canvas");
+          tmpCanvas.width = imgW;
+          tmpCanvas.height = srcH;
+          tmpCanvas.getContext("2d").drawImage(canvas, 0, srcY, imgW, srcH, 0, 0, imgW, srcH);
+          var sliceH = srcH / 2 * ratio;
+          pdf.addImage(tmpCanvas.toDataURL("image/png"), "PNG", x, margin, drawW, sliceH);
+          // Rodapé da página
+          pdf.setFontSize(7); pdf.setTextColor(150,150,150);
+          pdf.text("Pág. "+(p+1)+" de "+pages, pageW-margin, pageH-3, {align:"right"});
+        }
+      }
+
+      pdf.save("organograma-" + areaText.replace(/[^a-zA-Z0-9]/g,"-").toLowerCase() + ".pdf");
+
+      // Restaura
+      if(ph) ph.style.display = "none";
+      if(pf) pf.style.display = "none";
+      hidden.forEach(function(el){ el.style.display=""; });
       applyZoom(parseInt(currentZoom));
       if(zoomRange) zoomRange.value = currentZoom;
       btn.textContent = "⬇ Baixar PDF";
       btn.disabled = false;
-      document.title = "Organograma SGS";
-    }, 1000);
-  }, 300);
+
+    }).catch(function(err){
+      console.error("PDF error:", err);
+      if(ph) ph.style.display = "none";
+      if(pf) pf.style.display = "none";
+      hidden.forEach(function(el){ el.style.display=""; });
+      applyZoom(parseInt(currentZoom));
+      if(zoomRange) zoomRange.value = currentZoom;
+      btn.textContent = "⬇ Baixar PDF";
+      btn.disabled = false;
+      alert("Erro ao gerar PDF: " + err.message);
+    });
+  }, 400);
 }
 
 

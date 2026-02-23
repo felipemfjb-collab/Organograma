@@ -350,6 +350,82 @@ body.dark .node{ background:rgba(20,24,39,0.95); }
 .zoom-range{ width:140px; }
 
 .node.flash{ box-shadow:0 0 0 4px rgba(200,133,58,0.25); }
+
+/* ═══════════════════════════════
+   RESPONSIVIDADE - MOBILE
+═══════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* Header compacto */
+  header {
+    padding: 10px 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  header h1 { font-size: 1.1rem; }
+  .badge { font-size: .65rem; padding: 2px 7px; }
+  .toolbar-divider { display: none; }
+
+  /* Zoom range menor */
+  .zoom-range { width: 90px; }
+  .zoom-pill { min-width: 34px; font-size: .72rem; }
+
+  /* Main com menos padding */
+  .main { padding: 12px 10px; }
+
+  /* Filters em coluna */
+  .filters-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+  .filter-divider { display: none; }
+  .filter-group { min-width: unset; width: 100%; }
+  .filter-input { width: 100%; }
+
+  /* Legenda em wrap */
+  .legend { gap: 10px; font-size: .74rem; }
+
+  /* Chart ocupa mais tela */
+  .chart-wrap {
+    padding: 14px 8px;
+    height: calc(100vh - 280px);
+    min-height: 300px;
+    border-radius: 10px;
+  }
+
+  /* Nodes menores */
+  .node {
+    min-width: 110px;
+    max-width: 160px;
+    padding: 7px 10px;
+  }
+  .node-name { font-size: .75rem; }
+  .node-role { font-size: .6rem; padding: 2px 6px; }
+
+  /* Team boxes menores */
+  .team-box { min-width: 130px; max-width: 180px; }
+  .team-box-header { font-size: .65rem; padding: 5px 8px; }
+  .team-box-member { font-size: .7rem; }
+
+  /* Status bar em wrap */
+  .status-bar { gap: 8px; }
+  .stat { font-size: .78rem; padding: 7px 10px; }
+}
+
+@media (max-width: 480px) {
+  header h1 { display: none; }
+  .zoom-range { width: 70px; }
+  .chart-wrap { height: calc(100vh - 240px); }
+  
+  /* Toque: aumentar área de clique dos botões collapse */
+  .node .collapse-btn {
+    width: 32px;
+    height: 32px;
+    font-size: .85rem;
+  }
+}
 </style>
 </head>
 <body>
@@ -944,6 +1020,41 @@ function applyZoom(v){v=Math.min(150,Math.max(10,parseInt(v,10)));var pl=documen
   window.addEventListener("mouseup",function(){isDown=false;wrap.classList.remove("dragging");});
   wrap.addEventListener("click",function(e){if(drag){e.preventDefault();e.stopPropagation();drag=false;}},true);
   wrap.addEventListener("wheel",function(e){e.preventDefault();var r=document.getElementById("zoomRange");if(!r)return;var z=Math.min(150,Math.max(10,parseInt(r.value||"100",10)+(e.deltaY<0?5:-5)));r.value=z;applyZoom(z);},{passive:false});
+
+  // Touch pan support
+  var tx=0,ty=0,tsl=0,tst=0,tdrag=false,tdd=0;
+  wrap.addEventListener("touchstart",function(e){
+    if(e.touches.length!==1)return;
+    tdrag=false;tdd=0;
+    tx=e.touches[0].clientX; ty=e.touches[0].clientY;
+    tsl=wrap.scrollLeft; tst=wrap.scrollTop;
+  },{passive:true});
+  wrap.addEventListener("touchmove",function(e){
+    if(e.touches.length!==1)return;
+    var dx=e.touches[0].clientX-tx, dy=e.touches[0].clientY-ty;
+    tdd=Math.max(tdd,Math.abs(dx)+Math.abs(dy));
+    if(tdd>5){tdrag=true;e.preventDefault();wrap.scrollLeft=tsl-dx;wrap.scrollTop=tst-dy;}
+  },{passive:false});
+  wrap.addEventListener("touchend",function(){tdrag=false;});
+
+  // Pinch-to-zoom
+  var lastDist=0;
+  wrap.addEventListener("touchstart",function(e){
+    if(e.touches.length===2){
+      lastDist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX, e.touches[0].clientY-e.touches[1].clientY);
+    }
+  },{passive:true});
+  wrap.addEventListener("touchmove",function(e){
+    if(e.touches.length===2){
+      e.preventDefault();
+      var dist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX, e.touches[0].clientY-e.touches[1].clientY);
+      var r=document.getElementById("zoomRange");if(!r)return;
+      var delta=(dist-lastDist)*0.3;
+      lastDist=dist;
+      var z=Math.min(150,Math.max(10,parseInt(r.value||"100",10)+delta));
+      r.value=z;applyZoom(z);
+    }
+  },{passive:false});
 })();
 function initChart(data){
   currentRoots=buildTree(data);maxDepth=0;

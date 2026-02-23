@@ -1099,111 +1099,136 @@ function exportViewPDF() {
   btn.textContent = "⏳ Gerando...";
   btn.disabled = true;
 
-  // Reset zoom para captura
+  // Reset zoom para captura perfeita
   var zoomRange = document.getElementById("zoomRange");
-  var currentZoom = zoomRange ? zoomRange.value : "100";
+  var currentZoom = zoomRange ? parseInt(zoomRange.value) : 100;
   applyZoom(100);
   if(zoomRange) zoomRange.value = "100";
 
-  // Preenche cabeçalho de impressão
-  var phTitle = document.getElementById("phTitle");
-  var phRight = document.getElementById("phRight");
-  var today = new Date().toLocaleDateString("pt-BR") + ", " + new Date().toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"});
-  if(phTitle) phTitle.textContent = areaText;
-  if(phRight) phRight.innerHTML = "<strong>Data:</strong> " + today + "<br><strong>Gerado por:</strong> Organograma SGS";
-
-  // Mostra o print-header temporariamente para captura
-  var ph = document.getElementById("print-header");
-  var pf = document.getElementById("print-footer");
-  if(ph) ph.style.display = "flex";
-  if(pf) pf.style.display = "block";
-
-  // Oculta elementos desnecessários
-  var toHide = ["filtersBar","legendBar","statusBar"];
-  var hidden = [];
-  toHide.forEach(function(id){
-    var el = document.getElementById(id);
-    if(el && el.style.display !== "none"){ el.style.display="none"; hidden.push(el); }
+  // Expande tudo antes de capturar
+  document.querySelectorAll(".subtree-children").forEach(function(el){
+    el.style.display = "";
+    if(el._vline) el._vline.style.display = "";
   });
+  document.querySelectorAll(".assistants-below").forEach(function(el){ el.style.display = ""; });
 
-  // Expande tudo
-  document.querySelectorAll(".subtree-children").forEach(function(el){ el.style.display=""; });
-  document.querySelectorAll(".assistants-below").forEach(function(el){ el.style.display=""; });
-
-  var captureEl = document.querySelector(".main");
+  var chart = document.getElementById("orgChart");
 
   setTimeout(function(){
-    html2canvas(captureEl, {
+    html2canvas(chart, {
       scale: 2,
-      backgroundColor: "#FAF7F2",
+      backgroundColor: "#ffffff",
       useCORS: true,
       logging: false,
-      scrollX: -window.scrollX,
-      scrollY: -window.scrollY,
-      windowWidth: captureEl.scrollWidth,
-      windowHeight: captureEl.scrollHeight
+      x: 0, y: 0,
+      scrollX: 0, scrollY: 0,
+      width: chart.scrollWidth,
+      height: chart.scrollHeight,
+      windowWidth: chart.scrollWidth,
+      windowHeight: chart.scrollHeight
     }).then(function(canvas){
+      var { jsPDF } = window.jspdf;
       var imgW = canvas.width;
       var imgH = canvas.height;
-      var orientation = imgW > imgH ? "landscape" : "portrait";
-      var { jsPDF } = window.jspdf;
-      var pdf = new jsPDF({ orientation: orientation, unit: "mm", format: "a4" });
+      var today = new Date().toLocaleDateString("pt-BR") + "  " + new Date().toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"});
+
+      // Sempre landscape
+      var pdf = new jsPDF({ orientation: "landscape", unit: "pt", format: "a4" });
       var pageW = pdf.internal.pageSize.getWidth();
       var pageH = pdf.internal.pageSize.getHeight();
-      var margin = 8;
-      var availW = pageW - margin * 2;
-      var availH = pageH - margin * 2;
-      var ratio = Math.min(availW / (imgW / 2), availH / (imgH / 2));
-      var drawW = (imgW / 2) * ratio;
-      var drawH = (imgH / 2) * ratio;
-      var x = (pageW - drawW) / 2;
+      var headerH = 60;
+      var margin = 20;
+      var footerH = 16;
 
-      // Se maior que uma página, divide em múltiplas
-      if(drawH <= availH){
-        pdf.addImage(canvas.toDataURL("image/png"), "PNG", x, margin, drawW, drawH);
-      } else {
-        // Múltiplas páginas
-        var pageImgH = Math.floor(availH / ratio * 2); // pixels por página
-        var pages = Math.ceil(imgH / pageImgH);
-        for(var p = 0; p < pages; p++){
-          if(p > 0) pdf.addPage();
-          var srcY = p * pageImgH;
-          var srcH = Math.min(pageImgH, imgH - srcY);
-          var tmpCanvas = document.createElement("canvas");
-          tmpCanvas.width = imgW;
-          tmpCanvas.height = srcH;
-          tmpCanvas.getContext("2d").drawImage(canvas, 0, srcY, imgW, srcH, 0, 0, imgW, srcH);
-          var sliceH = srcH / 2 * ratio;
-          pdf.addImage(tmpCanvas.toDataURL("image/png"), "PNG", x, margin, drawW, sliceH);
-          // Rodapé da página
-          pdf.setFontSize(7); pdf.setTextColor(150,150,150);
-          pdf.text("Pág. "+(p+1)+" de "+pages, pageW-margin, pageH-3, {align:"right"});
-        }
+      function drawHeader(pdf, pageNum, totalPages) {
+        // Fundo branco do header
+        pdf.setFillColor(255,255,255);
+        pdf.rect(0, 0, pageW, headerH, "F");
+
+        // Texto SGS
+        pdf.setFont("helvetica","bold");
+        pdf.setFontSize(20);
+        pdf.setTextColor(26,26,46);
+        pdf.text("SGS", margin, headerH - 18);
+
+        // Linha laranja vertical
+        pdf.setDrawColor(255,102,0);
+        pdf.setLineWidth(2.5);
+        pdf.line(margin + 42, 10, margin + 42, headerH - 8);
+
+        // Título (nome da área)
+        pdf.setFont("helvetica","bold");
+        pdf.setFontSize(11);
+        pdf.setTextColor(255,102,0);
+        pdf.text(areaText.toUpperCase(), margin + 52, headerH - 22);
+
+        // Meta direita
+        pdf.setFont("helvetica","normal");
+        pdf.setFontSize(8);
+        pdf.setTextColor(70,70,90);
+        pdf.text("Data: " + today, pageW - margin, headerH - 32, {align:"right"});
+        pdf.text("Gerado por: Organograma SGS", pageW - margin, headerH - 20, {align:"right"});
+
+        // Linha separadora laranja embaixo do header
+        pdf.setDrawColor(255,102,0);
+        pdf.setLineWidth(1.5);
+        pdf.line(0, headerH, pageW, headerH);
+
+        // Footer
+        pdf.setFontSize(7);
+        pdf.setTextColor(150,150,150);
+        pdf.text("Organograma SGS — Apenas para uso interno", margin, pageH - 5);
+        pdf.text("Pág. " + pageNum + (totalPages > 1 ? " de " + totalPages : ""), pageW - margin, pageH - 5, {align:"right"});
+      }
+
+      // Área disponível para o chart em cada página
+      var availW = pageW - margin * 2;
+      var availH = pageH - headerH - footerH - margin;
+
+      // Escala para caber na largura
+      var scale = availW / (imgW / 2);
+      var drawW = availW;
+      var drawH = (imgH / 2) * scale;
+
+      // Quantas páginas?
+      var totalPages = Math.ceil(drawH / availH);
+
+      // Altura em pixels do canvas por página
+      var canvasPageH = Math.ceil((availH / scale) * 2);
+
+      for(var p = 0; p < totalPages; p++){
+        if(p > 0) pdf.addPage();
+        drawHeader(pdf, p + 1, totalPages);
+
+        var srcY = p * canvasPageH;
+        var srcH = Math.min(canvasPageH, imgH - srcY);
+
+        var slice = document.createElement("canvas");
+        slice.width = imgW;
+        slice.height = srcH;
+        slice.getContext("2d").drawImage(canvas, 0, srcY, imgW, srcH, 0, 0, imgW, srcH);
+
+        var sliceDrawH = (srcH / 2) * scale;
+        pdf.addImage(slice.toDataURL("image/png"), "PNG", margin, headerH + 6, drawW, sliceDrawH);
       }
 
       pdf.save("organograma-" + areaText.replace(/[^a-zA-Z0-9]/g,"-").toLowerCase() + ".pdf");
 
       // Restaura
-      if(ph) ph.style.display = "none";
-      if(pf) pf.style.display = "none";
-      hidden.forEach(function(el){ el.style.display=""; });
-      applyZoom(parseInt(currentZoom));
+      applyZoom(currentZoom);
       if(zoomRange) zoomRange.value = currentZoom;
       btn.textContent = "⬇ Baixar PDF";
       btn.disabled = false;
 
     }).catch(function(err){
       console.error("PDF error:", err);
-      if(ph) ph.style.display = "none";
-      if(pf) pf.style.display = "none";
-      hidden.forEach(function(el){ el.style.display=""; });
-      applyZoom(parseInt(currentZoom));
+      applyZoom(currentZoom);
       if(zoomRange) zoomRange.value = currentZoom;
       btn.textContent = "⬇ Baixar PDF";
       btn.disabled = false;
       alert("Erro ao gerar PDF: " + err.message);
     });
-  }, 400);
+  }, 500);
 }
 
 

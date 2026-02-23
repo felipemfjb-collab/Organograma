@@ -285,31 +285,18 @@ body.dark .node{ background:rgba(20,24,39,0.95); }
 
 /* Collapse btn */
 .node .collapse-btn{
-  position:absolute; bottom:-16px; left:50%; transform:translateX(-50%);
-  width:32px; height:32px; border-radius:50%;
-  background:transparent; color:var(--accent); border:none;
-  font-size:.7rem; cursor:pointer;
+  position:absolute; bottom:-13px; left:50%; transform:translateX(-50%);
+  width:26px; height:26px; border-radius:50%;
+  background:var(--accent); color:white; border:2px solid white;
+  font-size:.78rem; cursor:pointer;
   display:flex; align-items:center; justify-content:center;
-  font-weight:900; z-index:10; line-height:1;
-  padding:0;
+  font-weight:900; z-index:10; line-height:1; padding:0;
+  box-shadow:0 1px 5px rgba(0,0,0,0.2);
+  transition:box-shadow .15s, transform .15s;
 }
-.node .collapse-btn::after{
-  content:"";
-  display:block;
-  width:16px; height:16px;
-  border-radius:50%;
-  background:var(--accent);
-  position:absolute;
-  top:50%; left:50%;
-  transform:translate(-50%,-50%);
-  box-shadow:0 1px 4px rgba(0,0,0,0.25);
-  transition:box-shadow .15s;
-}
-.node .collapse-btn:hover::after{
-  box-shadow:0 2px 8px rgba(200,133,58,0.5);
-}
-.node .collapse-btn span{
-  position:relative; z-index:1;
+.node .collapse-btn:hover{
+  transform:translateX(-50%) scale(1.15);
+  box-shadow:0 3px 10px rgba(200,133,58,0.4);
 }
 
 /* Search highlight */

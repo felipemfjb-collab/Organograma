@@ -529,7 +529,7 @@ function renderSubtree(node, depth, parentNode){
   if(hasChildren || hasAssistants){
     const btn=document.createElement("button");
     btn.className="collapse-btn";
-    btn.innerHTML="<span>−</span>";
+    btn.textContent="−";
     btn.title="Recolher/Expandir";
     btn.addEventListener("click",(e)=>{
       e.stopPropagation();
@@ -625,29 +625,60 @@ function renderSubtree(node, depth, parentNode){
     if(childrenAreLeaves(node)){
       const groups = groupLeafChildrenByEquipe(node.children);
 
-      if (groups.length <= 1) {
+      if(groups.length <= 1){
+        // Só uma equipe: sem linha horizontal, só vertical
         childrenEl.style.cssText = "display:flex;flex-direction:column;align-items:center;gap:14px;";
+        groups.forEach(g => childrenEl.appendChild(makeTeamBox(g.items, g.teamName)));
+
       } else {
-        // ✅ TUDO lado a lado, sem quebrar linha
-        childrenEl.style.cssText =
-          "display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-start;align-items:flex-start;gap:18px;";
+        // Múltiplas equipes: linha horizontal conectando todas
+        childrenEl.style.cssText = "display:flex;flex-direction:column;align-items:center;";
+
+        const colsLeaf = document.createElement("div");
+        colsLeaf.style.cssText = "display:flex;flex-wrap:nowrap;align-items:flex-start;";
+
+        groups.forEach((g, i) => {
+          const isFirst = i === 0;
+          const isLast  = i === groups.length - 1;
+
+          const col = document.createElement("div");
+          col.style.cssText = "display:flex;flex-direction:column;align-items:center;";
+
+          // Linha horizontal
+          const hRow = document.createElement("div");
+          hRow.style.cssText = "width:100%;height:2px;display:flex;flex-shrink:0;";
+
+          const hL = document.createElement("div");
+          hL.style.cssText = "flex:1;height:2px;background:" + (isFirst ? "transparent" : "var(--accent)") + ";";
+
+          const hC = document.createElement("div");
+          hC.style.cssText = "width:2px;height:2px;background:var(--accent);flex-shrink:0;";
+
+          const hR = document.createElement("div");
+          hR.style.cssText = "flex:1;height:2px;background:" + (isLast ? "transparent" : "var(--accent)") + ";";
+
+          hRow.appendChild(hL); hRow.appendChild(hC); hRow.appendChild(hR);
+
+          // Vertical descendo até a team-box
+          const vDrop = document.createElement("div");
+          vDrop.className = "v-line";
+          vDrop.style.height = "16px";
+
+          // Team-box com padding lateral
+          const inner = document.createElement("div");
+          inner.style.cssText = "padding:0 10px;";
+          inner.appendChild(makeTeamBox(g.items, g.teamName));
+
+          col.appendChild(hRow);
+          col.appendChild(vDrop);
+          col.appendChild(inner);
+          colsLeaf.appendChild(col);
+        });
+
+        childrenEl.appendChild(colsLeaf);
       }
 
-      // ✅ largura mínima para TODAS as caixas caberem na mesma linha
-      if (groups.length > 1) {
-        const BOX_W = 240;     // ~team-box (max 220) + folga
-        const GAP   = 18;      // mesmo gap do flex
-        const minW  = groups.length * BOX_W + (groups.length - 1) * GAP;
-
-        childrenEl.style.minWidth = minW + "px";
-        wrap.style.minWidth = Math.max(minW, 260) + "px";
-      }
-
-      groups.forEach(g=>{
-        childrenEl.appendChild(makeTeamBox(g.items, g.teamName));
-      });
-
-    } else if(node.children.length===1){
+} else if(node.children.length===1){
       childrenEl.style.cssText="display:flex;flex-direction:column;align-items:center;";
       childrenEl.appendChild(renderSubtree(node.children[0], depth+1, node));
 
@@ -660,40 +691,44 @@ function renderSubtree(node, depth, parentNode){
         const isFirst=i===0, isLast=i===node.children.length-1, only=node.children.length===1;
 
         const col=document.createElement("div");
-        col.style.cssText="display:flex;flex-direction:column;align-items:center;padding:0 18px;box-sizing:border-box;";
-
-        // Horizontal line: a full-width row at top, with colored segment
-        const hRow=document.createElement("div");
-        hRow.style.cssText="width:100%;height:2px;display:flex;flex-shrink:0;";
+        col.style.cssText="display:flex;flex-direction:column;align-items:center;";
 
         if(!only){
+          // Linha horizontal: 3 partes — esquerda, ponto central, direita
+          const hRow=document.createElement("div");
+          hRow.style.cssText="width:100%;height:2px;display:flex;flex-shrink:0;";
+
           const hL=document.createElement("div");
           hL.style.cssText="flex:1;height:2px;background:"+(isFirst?"transparent":"var(--accent)")+";";
+
+          const hC=document.createElement("div");
+          hC.style.cssText="width:2px;height:2px;background:var(--accent);flex-shrink:0;";
 
           const hR=document.createElement("div");
           hR.style.cssText="flex:1;height:2px;background:"+(isLast?"transparent":"var(--accent)")+";";
 
-          const hM=document.createElement("div");
-          hM.style.cssText="width:2px;flex-shrink:0;height:2px;background:var(--accent);";
-
           hRow.appendChild(hL);
-          hRow.appendChild(hM);
+          hRow.appendChild(hC);
           hRow.appendChild(hR);
+          col.appendChild(hRow);
         }
 
-        // Vertical drop from center of hRow down to child
+        // Linha vertical descendo do centro
         const vDrop=document.createElement("div");
         vDrop.className="v-line";
         vDrop.style.height="22px";
-
-        col.appendChild(hRow);
         col.appendChild(vDrop);
-        col.appendChild(renderSubtree(child, depth+1, node));
+
+        // Subtree com padding lateral para dar espaço entre nós
+        const inner=document.createElement("div");
+        inner.style.cssText="padding:0 16px;display:flex;flex-direction:column;align-items:center;";
+        inner.appendChild(renderSubtree(child, depth+1, node));
+        col.appendChild(inner);
+
         cols.appendChild(col);
       });
 
-      childrenEl.appendChild(cols);
-    }
+      childrenEl.appendChild(cols);    }
 
     wrap.appendChild(childrenEl);
   }
@@ -846,7 +881,7 @@ function applyLevelFilter(){
       const parent=el.parentElement;
       if(parent){
         const btn=parent.querySelector(':scope .collapse-btn');
-        if(btn) btn.innerHTML="<span>+</span>";
+        if(btn) btn.textContent="+";
       }
     }
   });

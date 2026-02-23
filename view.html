@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Organograma SGS</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="data.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -347,13 +348,11 @@ body.dark .node{ background:rgba(20,24,39,0.95); }
 
 .node.flash{ box-shadow:0 0 0 4px rgba(200,133,58,0.25); }
 </style>
-<script src="data.js"></script>
 </head>
 <body>
-
 <header>
   <div class="brand">
-    <span style="font-size:1.3rem;font-weight:900;color:#C8853A;letter-spacing:-.02em">SGS</span>
+    <span style="font-size:1.4rem;font-weight:900;color:#C8853A">SGS</span>
     <div class="toolbar-divider"></div>
     <h1>Organograma</h1>
     <span class="badge" style="background:#4A7FC1">VISUALIZAÇÃO</span>
@@ -362,8 +361,7 @@ body.dark .node{ background:rgba(20,24,39,0.95); }
     <button class="btn btn-outline" id="darkBtn" onclick="toggleDark()">🌙 Modo escuro</button>
     <div class="zoom-box">
       <span class="zoom-pill" id="zoomPill">100%</span>
-      <input id="zoomRange" class="zoom-range" type="range" min="10" max="150" value="100"
-             oninput="applyZoom(this.value)">
+      <input id="zoomRange" class="zoom-range" type="range" min="10" max="150" value="100" oninput="applyZoom(this.value)">
     </div>
   </div>
 </header>
@@ -419,25 +417,58 @@ body.dark .node{ background:rgba(20,24,39,0.95); }
     <div id="orgChart"></div>
   </div>
 
-  <div id="errorMsg" style="display:none;padding:40px;text-align:center;color:#c0392b;font-size:1rem;">
-    ⚠️ Não foi possível carregar os dados.<br>
-    <small style="color:var(--sub)">Verifique se o arquivo data.json está na mesma pasta.</small>
+  <div id="errorMsg" style="display:none;padding:40px;text-align:center;color:#c0392b;">
+    ⚠️ Não foi possível carregar os dados. Verifique se o data.js está no GitHub.
   </div>
 </div>
 
 <script>
-var orgData = [];
 var currentRoots = [], maxDepth = 0, countsMap = {};
-
 
 function clamp(v,a,b){ return Math.min(b, Math.max(a,v)); }
 
-
 function normStr(s){ return String(s||"").trim(); }
 
+function stripAccents(s){
+  var r = "", str = String(s||"").normalize("NFD");
+  for(var i = 0; i < str.length; i++){
+    var c = str.charCodeAt(i);
+    if(c < 768 || c > 879) r += str[i];
+  }
+  return r;
+}
 
-function stripAccents(s){ var r="",str=String(s||"").normalize("NFD"); for(var i=0;i<str.length;i++){ var c=str.charCodeAt(i); if(c<768||c>879) r+=str[i]; } return r; }
+function buildTree(data){
+  const map={};
+  data.forEach(p=> map[p.id]={...p, children:[], assistants:[]});
 
+  const byNameIds={};
+  data.forEach(p=>{
+    byNameIds[p.nome]=byNameIds[p.nome]||[];
+    byNameIds[p.nome].push(p.id);
+  });
+
+  const roots=[];
+  data.forEach(p=>{
+    const node=map[p.id];
+    let parentId="";
+
+    if(p.gestorId && map[p.gestorId]) parentId=p.gestorId;
+    else if(p.gestor){
+      const ids=byNameIds[p.gestor]||[];
+      if(ids.length===1) parentId=ids[0];
+    }
+
+    if(parentId){
+      if(p.assistente) map[parentId].assistants.push(node);
+      else map[parentId].children.push(node);
+    }else{
+      if(!p.assistente) roots.push(node);
+    }
+  });
+
+  return roots;
+}
 
 function computeCounts(roots){
   const m={};
@@ -452,17 +483,14 @@ function computeCounts(roots){
   return m;
 }
 
-
 function calcMaxDepth(node,d){
   maxDepth=Math.max(maxDepth,d);
   (node.children||[]).forEach(c=>calcMaxDepth(c,d+1));
 }
 
-
 function childrenAreLeaves(node){
   return (node.children||[]).every(c => (c.children||[]).length===0);
 }
-
 
 function groupLeafChildrenByEquipe(children){
   const map = new Map();
@@ -485,7 +513,6 @@ function groupLeafChildrenByEquipe(children){
 
   return groups;
 }
-
 
 function makeTeamBox(children, teamName){
   const box=document.createElement("div");
@@ -517,7 +544,6 @@ function makeTeamBox(children, teamName){
   box.appendChild(body);
   return box;
 }
-
 
 function renderSubtree(node, depth, parentNode){
   const wrap=document.createElement("div");
@@ -706,7 +732,6 @@ function renderSubtree(node, depth, parentNode){
   return wrap;
 }
 
-
 function drawChart(roots){
   const chart=document.getElementById("orgChart");
   chart.innerHTML="";
@@ -725,7 +750,6 @@ function drawChart(roots){
     chart.appendChild(row);
   }
 }
-
 
 function applySearch(){
   const inp = document.getElementById("searchInput");
@@ -749,7 +773,6 @@ function applySearch(){
   });
   document.querySelectorAll(".node.highlighted").forEach(el=> el.classList.remove("dimmed"));
 }
-
 
 function applyAreaFilter(){
   const areaSel = document.getElementById("areaSelect");
@@ -786,7 +809,6 @@ function applyAreaFilter(){
   if(n) drawChart([n]);
 }
 
-
 function applyLevelFilter(){
   const levelSel = document.getElementById("levelSelect");
   if(!levelSel) return;
@@ -820,7 +842,6 @@ function applyLevelFilter(){
   });
 }
 
-
 function expandAll(){
   document.querySelectorAll(".subtree-children").forEach(el=>{
     el.style.display="";
@@ -830,7 +851,6 @@ function expandAll(){
   document.querySelectorAll(".node .collapse-btn").forEach(btn=> btn.textContent="−");
 }
 
-
 function collapseAll(){
   document.querySelectorAll(".subtree-children").forEach(el=>{
     el.style.display="none";
@@ -839,7 +859,6 @@ function collapseAll(){
   document.querySelectorAll(".assistants-below").forEach(el=> el.style.display="none");
   document.querySelectorAll(".node .collapse-btn").forEach(btn=> btn.textContent="+");
 }
-
 
 function resetFilters(){
   const search = document.getElementById("searchInput");
@@ -892,61 +911,53 @@ function applyZoom(v) {
 })();
 
 function initChart(data) {
-  orgData = data;
-  currentRoots = buildTree(orgData);
-  maxDepth = 0; currentRoots.forEach(function(r){ calcMaxDepth(r, 0); });
+  currentRoots = buildTree(data);
+  maxDepth = 0;
+  currentRoots.forEach(function(r){ calcMaxDepth(r, 0); });
   countsMap = computeCounts(currentRoots);
 
-  // Status bar
-  var ac = orgData.filter(function(p){ return p.assistente; }).length;
+  var ac = data.filter(function(p){ return p.assistente; }).length;
   var sb = document.getElementById("statusBar");
   if(sb) {
     sb.innerHTML = "";
     var d1=document.createElement("div"); d1.className="stat";
-    var s1=document.createElement("strong"); s1.textContent=orgData.length;
+    var s1=document.createElement("strong"); s1.textContent=data.length;
     d1.appendChild(s1); d1.appendChild(document.createTextNode(" pessoas"));
     var d2=document.createElement("div"); d2.className="stat";
-    var s2=document.createElement("strong"); s2.textContent=(orgData.length-ac);
+    var s2=document.createElement("strong"); s2.textContent=(data.length-ac);
     d2.appendChild(s2); d2.appendChild(document.createTextNode(" na hierarquia"));
     var d3=document.createElement("div"); d3.className="tip";
     d3.textContent = "👁️ Modo visualização";
     sb.appendChild(d1); sb.appendChild(d2); sb.appendChild(d3);
   }
 
-  // Level select
   var ls = document.getElementById("levelSelect");
-  if(ls){ for(var i=1;i<=maxDepth;i++){var o=document.createElement("option");o.value=i;o.textContent="Até nível "+i;ls.appendChild(o);} }
+  if(ls){ for(var i=1;i<=maxDepth;i++){ var o=document.createElement("option"); o.value=i; o.textContent="Até nível "+i; ls.appendChild(o); } }
 
-  // Area select
   var asel = document.getElementById("areaSelect");
   if(asel){
-    var ns = (currentRoots.length===1&&currentRoots[0].children.length>0) ? currentRoots[0].children : currentRoots;
-    ns.forEach(function(n){ var o=document.createElement("option");o.value=n.id;o.textContent=n.nome+" ("+(n.cargo||"-")+")";asel.appendChild(o); });
+    var ns = (currentRoots.length===1 && currentRoots[0].children.length>0) ? currentRoots[0].children : currentRoots;
+    ns.forEach(function(n){ var o=document.createElement("option"); o.value=n.id; o.textContent=n.nome+" ("+(n.cargo||"-")+")"; asel.appendChild(o); });
   }
 
-  // Show UI
   document.getElementById("filtersBar").style.display = "";
   document.getElementById("legendBar").style.display  = "";
   document.getElementById("chartWrap").style.display  = "";
-
   drawChart(currentRoots);
 }
 
-// Try all possible variable names from data.js
 window.addEventListener("load", function() {
   var data = null;
-  if (typeof window.ORG_DATA !== "undefined" && window.ORG_DATA && window.ORG_DATA.length) {
+  if (typeof window.ORG_DATA !== "undefined" && Array.isArray(window.ORG_DATA) && window.ORG_DATA.length) {
     data = window.ORG_DATA;
-  } else if (typeof window.orgData !== "undefined" && window.orgData && window.orgData.length) {
+  } else if (typeof window.orgData !== "undefined" && Array.isArray(window.orgData) && window.orgData.length) {
     data = window.orgData;
   }
-  
-  if (data && data.length) {
+  if (data) {
     initChart(data);
   } else {
-    console.error("No data found. Make sure data.js is uploaded to GitHub.");
-    document.getElementById("statusBar").innerHTML = 
-      '<div style="color:#c0392b;padding:10px">⚠️ Dados não encontrados. Verifique se o data.js foi enviado ao GitHub.</div>';
+    document.getElementById("statusBar").style.display = "none";
+    document.getElementById("errorMsg").style.display  = "";
   }
 });
 </script>

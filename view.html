@@ -547,12 +547,12 @@ function makeTeamBox(children, teamName){
 
 function renderSubtree(node, depth, parentNode){
   const wrap=document.createElement("div");
-  wrap.style.cssText="display:flex;flex-direction:column;align-items:center;";
+  wrap.style.cssText="display:flex;flex-direction:column;align-items:center;gap:0;";
 
   const hasAssistants = node.assistants && node.assistants.length>0;
   const hasChildren   = node.children && node.children.length>0;
 
-  let childrenEl=null, vDown=null, assistantsEl=null;
+  let childrenEl=null, vDown=null, assistantsEl=null, vAsst=null;
 
   const counts = countsMap[node.id] || {direct:0,total:0};
   const tip = [
@@ -586,6 +586,7 @@ function renderSubtree(node, depth, parentNode){
         (assistantsEl && assistantsEl.style.display!=="none");
 
       const val = anyVisible ? "none" : "";
+      if(vAsst) vAsst.style.display = val;
       if(assistantsEl) assistantsEl.style.display = val;
       if(childrenEl) childrenEl.style.display = val;
       if(vDown) vDown.style.display = val;
@@ -604,9 +605,15 @@ function renderSubtree(node, depth, parentNode){
   // We achieve this by centering each aRow in wrap and making vSeg flush-right
   // of the card+dash combination, using a hidden mirror on the right.
   if(hasAssistants){
+    // Espaço vertical entre o card do gestor e os assistentes
+    vAsst = document.createElement("div");
+    vAsst.className = "v-line";
+    vAsst.style.height = "10px";
+    wrap.appendChild(vAsst);
+
     assistantsEl = document.createElement("div");
     assistantsEl.className = "assistants-below";
-    assistantsEl.style.cssText = "display:flex;flex-direction:column;align-items:center;width:100%;";
+    assistantsEl.style.cssText = "display:flex;flex-direction:column;align-items:center;width:100%;position:relative;";
 
     node.assistants.forEach(asst => {
       // aRow: [aCard][dash][vSeg]  all in one flex-row
@@ -652,7 +659,11 @@ function renderSubtree(node, depth, parentNode){
       assistantsEl.appendChild(aRow);
     });
 
+    // Thin vertical connector joining assistantsEl bottom to vDown
+    const aConnector = document.createElement("div");
+    aConnector.style.cssText = "width:2px;height:8px;background:var(--accent);";
     wrap.appendChild(assistantsEl);
+    wrap.appendChild(aConnector);
   }
 
   // filhos
@@ -660,7 +671,7 @@ function renderSubtree(node, depth, parentNode){
     vDown=document.createElement("div");
     vDown.className="v-line";
     vDown.style.height="28px";
-    vDown.style.marginTop = hasAssistants ? "14px" : "10px";
+    vDown.style.cssText = (vDown.style.cssText||"") + ";margin-top:" + (hasAssistants ? "-4px" : "0");
     wrap.appendChild(vDown);
 
     childrenEl=document.createElement("div");

@@ -661,17 +661,35 @@ function renderSubtree(node, depth, parentNode){
         const isLast  = i===node.children.length-1;
 
         const col=document.createElement("div");
-        col.style.cssText="display:flex;flex-direction:column;align-items:center;padding:0 18px;position:relative;";
+        col.style.cssText="display:flex;flex-direction:column;align-items:center;padding:0 18px;";
 
-        const hSeg=document.createElement("div");
-        hSeg.style.cssText=`position:absolute;top:0;height:2px;background:var(--accent);left:${isFirst?"50%":"0"};right:${isLast?"50%":"0"};`;
-        col.appendChild(hSeg);
+        // hWrap: always-visible horizontal segment (not position:absolute)
+        const hWrap=document.createElement("div");
+        hWrap.style.cssText="width:100%;display:flex;height:2px;";
+
+        const hLeft=document.createElement("div");
+        hLeft.style.cssText="height:2px;background:var(--accent);"
+          +"flex:"+(isFirst?"0 0 50%":"1")+";"
+          +"visibility:"+(isFirst?"hidden":"visible")+";";
+
+        const hRight=document.createElement("div");
+        hRight.style.cssText="height:2px;background:var(--accent);"
+          +"flex:"+(isLast?"0 0 50%":"1")+";"
+          +"visibility:"+(isLast?"hidden":"visible")+";";
+
+        const hDot=document.createElement("div");
+        hDot.style.cssText="width:2px;height:2px;background:var(--accent);flex-shrink:0;";
+
+        hWrap.appendChild(hLeft);
+        hWrap.appendChild(hDot);
+        hWrap.appendChild(hRight);
 
         const vTop=document.createElement("div");
         vTop.className="v-line";
-        vTop.style.height="24px";
-        col.appendChild(vTop);
+        vTop.style.cssText="height:24px;width:2px;background:var(--accent);margin:0 auto;";
 
+        col.appendChild(hWrap);
+        col.appendChild(vTop);
         col.appendChild(renderSubtree(child, depth+1, node));
         cols.appendChild(col);
       });

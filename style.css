@@ -285,13 +285,18 @@ body.dark .node{ background:rgba(20,24,39,0.95); }
 
 /* Collapse btn */
 .node .collapse-btn{
-  position:absolute; bottom:-10px; left:50%; transform:translateX(-50%);
-  width:18px; height:18px; border-radius:50%;
+  position:absolute; bottom:-16px; left:50%; transform:translateX(-50%);
+  width:32px; height:32px; border-radius:50%;
   background:var(--accent); color:white; border:none;
-  font-size:.7rem; cursor:pointer;
+  font-size:.9rem; cursor:pointer;
   display:flex; align-items:center; justify-content:center;
   font-weight:900; z-index:10; line-height:1;
-  box-shadow:0 1px 4px rgba(0,0,0,0.25);
+  box-shadow:0 2px 8px rgba(0,0,0,0.25);
+  transition:transform .15s, box-shadow .15s;
+}
+.node .collapse-btn:hover{
+  transform:translateX(-50%) scale(1.2);
+  box-shadow:0 4px 14px rgba(200,133,58,0.45);
 }
 
 /* Search highlight */

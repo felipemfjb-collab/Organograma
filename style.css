@@ -301,7 +301,31 @@ body.dark .node{ background:rgba(20,24,39,0.95); }
 
 /* Search highlight */
 .node.highlighted{ border:2px solid #F5A623!important; box-shadow:0 0 0 3px rgba(245,166,35,0.3)!important; }
-.node.dimmed{ opacity:.22; }
+.node.dimmed{ opacity:.18; }
+/* Caminho ancestral até o nó encontrado */
+.node.ancestor-path{
+  border:2px solid var(--accent)!important;
+  box-shadow:0 0 0 3px rgba(200,133,58,0.2)!important;
+  background: #FDF5EA !important;
+}
+/* Membros de team-box */
+.team-box-member.highlighted-member{
+  background: rgba(245,166,35,0.25);
+  border-radius: 6px;
+  margin: 0 -4px;
+  padding: 5px 4px;
+}
+.team-box-member.dimmed-member{ opacity:.25; }
+.team-box.dimmed-box{ opacity:.2; }
+/* Contador de equipe no header */
+.node-count{
+  font-size:.65rem;
+  color:var(--sub);
+  margin-top:5px;
+  font-weight:700;
+  letter-spacing:.02em;
+}
+
 
 /* ASSISTENTES: à direita do gestor, na mesma linha horizontal */
 .assistants-below{

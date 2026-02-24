@@ -309,8 +309,44 @@ body.dark .node{ background:rgba(20,24,39,0.95); }
   transform:translateX(-50%) scale(1.15);
   box-shadow:0 3px 10px rgba(200,133,58,0.4);
 }
+
+/* Search highlight */
 .node.highlighted{ border:2px solid #F5A623!important; box-shadow:0 0 0 3px rgba(245,166,35,0.3)!important; }
-.node.dimmed{ opacity:.22; }
+.node.dimmed{ opacity:.18; }
+/* Caminho ancestral até o nó encontrado */
+.node.ancestor-path{
+  border:2px solid var(--accent)!important;
+  box-shadow:0 0 0 3px rgba(200,133,58,0.2)!important;
+  background: #FDF5EA !important;
+}
+/* Membros de team-box */
+.team-box-member.highlighted-member{
+  background: rgba(245,166,35,0.25);
+  border-radius: 6px;
+  margin: 0 -4px;
+  padding: 5px 4px;
+}
+.team-box-member.dimmed-member{ opacity:.25; }
+.team-box.dimmed-box{ opacity:.2; }
+/* Contador de equipe no header */
+.node-count{
+  font-size:.65rem;
+  color:var(--sub);
+  margin-top:5px;
+  font-weight:700;
+  letter-spacing:.02em;
+}
+.team-count{
+  display:inline-block;
+  background:rgba(255,255,255,0.25);
+  color:white;
+  border-radius:10px;
+  padding:1px 7px;
+  font-size:.68rem;
+  font-weight:900;
+  margin-left:6px;
+  vertical-align:middle;
+}
 
 /* ASSISTENTES: à direita do gestor, na mesma linha horizontal */
 .assistants-below{
@@ -352,86 +388,8 @@ body.dark .node{ background:rgba(20,24,39,0.95); }
 .zoom-range{ width:140px; }
 
 .node.flash{ box-shadow:0 0 0 4px rgba(200,133,58,0.25); }
-
-/* ═══════════════════════════════
-   RESPONSIVIDADE - MOBILE
-═══════════════════════════════ */
-@media (max-width: 768px) {
-
-  /* Header compacto */
-  header {
-    padding: 10px 14px;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  header h1 { font-size: 1.1rem; }
-  .badge { font-size: .65rem; padding: 2px 7px; }
-  .toolbar-divider { display: none; }
-
-  /* Zoom range menor */
-  .zoom-range { width: 90px; }
-  .zoom-pill { min-width: 34px; font-size: .72rem; }
-
-  /* Main com menos padding */
-  .main { padding: 12px 10px; }
-
-  /* Filters em coluna */
-  .filters-bar {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-    padding: 10px 12px;
-  }
-  .filter-divider { display: none; }
-  .filter-group { min-width: unset; width: 100%; }
-  .filter-input { width: 100%; }
-
-  /* Legenda em wrap */
-  .legend { gap: 10px; font-size: .74rem; }
-
-  /* Chart ocupa mais tela */
-  .chart-wrap {
-    padding: 14px 8px;
-    height: calc(100vh - 280px);
-    min-height: 300px;
-    border-radius: 10px;
-  }
-
-  /* Nodes menores */
-  .node {
-    min-width: 110px;
-    max-width: 160px;
-    padding: 7px 10px;
-  }
-  .node-name { font-size: .75rem; }
-  .node-role { font-size: .6rem; padding: 2px 6px; }
-
-  /* Team boxes menores */
-  .team-box { min-width: 130px; max-width: 180px; }
-  .team-box-header { font-size: .65rem; padding: 5px 8px; }
-  .team-box-member { font-size: .7rem; }
-
-  /* Status bar em wrap */
-  .status-bar { gap: 8px; }
-  .stat { font-size: .78rem; padding: 7px 10px; }
-}
-
-@media (max-width: 480px) {
-  header h1 { display: none; }
-  .zoom-range { width: 70px; }
-  .chart-wrap { height: calc(100vh - 240px); }
-  
-  /* Toque: aumentar área de clique dos botões collapse */
-  .node .collapse-btn {
-    width: 32px;
-    height: 32px;
-    font-size: .85rem;
-  }
-}
-
-/* Print header - hidden by default */
 #print-header { display: none; }
-#print-footer { display: none; }}
+#print-footer { display: none; }
 </style>
 </head>
 <body>
@@ -517,7 +475,6 @@ body.dark .node{ background:rgba(20,24,39,0.95); }
     ⚠️ Não foi possível carregar os dados. Verifique se o data.js está no GitHub.
   </div>
 </div>
-
 <script>
 var currentRoots=[],maxDepth=0,countsMap={};
 
@@ -567,7 +524,7 @@ function computeCounts(roots){
   const m={};
   function walk(n){
     const direct=(n.children?.length||0);
-    let total=direct;
+    let total=0;
     (n.children||[]).forEach(ch=> total += 1 + walk(ch));
     m[n.id]={direct,total};
     return total;
@@ -613,7 +570,8 @@ function makeTeamBox(children, teamName){
 
   const header=document.createElement("div");
   header.className="team-box-header";
-  header.textContent = (teamName && String(teamName).trim()) ? String(teamName).trim() : "EQUIPE";
+  const tName = (teamName && String(teamName).trim()) ? String(teamName).trim() : "EQUIPE";
+  header.textContent = tName;
   box.appendChild(header);
 
   const body=document.createElement("div");
@@ -656,8 +614,13 @@ function renderSubtree(node, depth, parentNode){
 
   const card=document.createElement("div");
   card.className="node" + (depth===0 ? " root" : "");
+  card.dataset.nodeId = node.id;
   card.title = tip;
-  card.innerHTML = `<div class="node-name">${node.nome}</div><div class="node-role">${node.cargo||"—"}</div>`;
+  const nodeCounts = countsMap[node.id] || {direct:0, total:0};
+  const countBadge = (nodeCounts.total > 0)
+    ? `<div class="node-count" title="${nodeCounts.direct} diretos / ${nodeCounts.total} total">👥 ${nodeCounts.total}</div>`
+    : "";
+  card.innerHTML = `<div class="node-name">${node.nome}</div><div class="node-role">${node.cargo||"—"}</div>${countBadge}`;
 
   card.addEventListener("click",(e)=>{
     e.stopPropagation();
@@ -906,27 +869,95 @@ function drawChart(roots){
   }
 }
 
+function getAncestorIds(targetId, nodes, path){
+  path = path || [];
+  for(var i=0;i<nodes.length;i++){
+    var n = nodes[i];
+    var newPath = path.concat([n.id]);
+    if(n.id === targetId) return newPath;
+    var found = getAncestorIds(targetId, n.children||[], newPath);
+    if(found) return found;
+    // checar assistentes também
+    var foundA = getAncestorIds(targetId, n.assistants||[], newPath);
+    if(foundA) return foundA;
+  }
+  return null;
+}
+
 function applySearch(){
   const inp = document.getElementById("searchInput");
   if(!inp) return;
   const q = inp.value.trim().toLowerCase();
 
   const areaSel = document.getElementById("areaSelect");
-  const levelSel = document.getElementById("levelSelect");
   if(areaSel) areaSel.value="";
-  if(levelSel) levelSel.value="99";
 
+  // Limpa estados anteriores
   document.querySelectorAll(".node").forEach(el=>{
-    el.classList.remove("highlighted","dimmed");
+    el.classList.remove("highlighted","dimmed","ancestor-path");
   });
+  document.querySelectorAll(".team-box").forEach(el=>{
+    el.classList.remove("dimmed-box");
+    el.querySelectorAll(".team-box-member").forEach(m=>{
+      m.classList.remove("highlighted-member","dimmed-member");
+    });
+  });
+
   if(!q) return;
 
+  // Encontra todos os IDs que batem com a busca
+  var matchIds = new Set();
+  // Busca em nodes normais
   document.querySelectorAll(".node").forEach(el=>{
     const name = (el.querySelector(".node-name")||{}).textContent||"";
-    if(name.toLowerCase().includes(q)) el.classList.add("highlighted");
-    else el.classList.add("dimmed");
+    if(stripAccents(name.toLowerCase()).includes(stripAccents(q))){
+      el.classList.add("highlighted");
+      matchIds.add(el.dataset.nodeId);
+    } else {
+      el.classList.add("dimmed");
+    }
   });
-  document.querySelectorAll(".node.highlighted").forEach(el=> el.classList.remove("dimmed"));
+
+  // Busca em team-box members
+  document.querySelectorAll(".team-box-member").forEach(el=>{
+    const name = (el.querySelector(".team-member-name")||el).textContent||"";
+    if(stripAccents(name.toLowerCase()).includes(stripAccents(q))){
+      el.classList.add("highlighted-member");
+      el.classList.remove("dimmed-member");
+      // mostrar a team-box pai
+      var box = el.closest(".team-box");
+      if(box) box.classList.remove("dimmed-box");
+    } else {
+      el.classList.add("dimmed-member");
+    }
+  });
+
+  // Destacar ancestrais dos nós encontrados
+  document.querySelectorAll(".node.highlighted").forEach(el=>{
+    var nid = el.dataset.nodeId;
+    if(!nid) return;
+    var path = getAncestorIds(nid, currentRoots);
+    if(path){
+      path.forEach(function(pid){
+        var pEl = document.querySelector('.node[data-node-id="'+pid+'"]');
+        if(pEl && !pEl.classList.contains("highlighted")){
+          pEl.classList.add("ancestor-path");
+          pEl.classList.remove("dimmed");
+        }
+      });
+    }
+  });
+
+  // Remover dimmed dos highlighted
+  document.querySelectorAll(".node.highlighted, .node.ancestor-path").forEach(el=>{
+    el.classList.remove("dimmed");
+  });
+
+  // Dimmed nas team-boxes que não têm match
+  document.querySelectorAll(".team-box").forEach(el=>{
+    const hasMatch = el.querySelector(".highlighted-member");
+    if(!hasMatch) el.classList.add("dimmed-box");
+  });
 }
 
 function applyAreaFilter(){
@@ -964,39 +995,6 @@ function applyAreaFilter(){
   if(n) drawChart([n]);
 }
 
-function applyLevelFilter(){
-  const levelSel = document.getElementById("levelSelect");
-  if(!levelSel) return;
-  const maxLvl=parseInt(levelSel.value,10);
-
-  const search = document.getElementById("searchInput");
-  const areaSel = document.getElementById("areaSelect");
-  if(search) search.value="";
-  if(areaSel) areaSel.value="";
-
-  document.querySelectorAll(".node").forEach(el=> el.classList.remove("highlighted","dimmed"));
-
-  document.querySelectorAll(".subtree-children").forEach(el=>{
-    el.style.display="";
-    if(el._vline) el._vline.style.display="";
-  });
-  document.querySelectorAll(".assistants-below").forEach(el=> el.style.display="");
-  document.querySelectorAll(".node .collapse-btn").forEach(btn=> btn.textContent="−");
-
-  document.querySelectorAll('.subtree-children[data-depth]').forEach(el=>{
-    const d=parseInt(el.getAttribute("data-depth"),10);
-    if(d>maxLvl){
-      el.style.display="none";
-      if(el._vline) el._vline.style.display="none";
-      const parent=el.parentElement;
-      if(parent){
-        const btn=parent.querySelector(':scope .collapse-btn');
-        if(btn) btn.textContent="+";
-      }
-    }
-  });
-}
-
 function expandAll(){
   document.querySelectorAll(".subtree-children").forEach(el=>{
     el.style.display="";
@@ -1027,68 +1025,6 @@ function resetFilters(){
   expandAll();
   drawChart(currentRoots);
 }
-function toggleDark(){document.body.classList.toggle("dark");var b=document.getElementById("darkBtn");if(b)b.textContent=document.body.classList.contains("dark")?"☀️ Modo claro":"🌙 Modo escuro";}
-function applyZoom(v){v=Math.min(150,Math.max(10,parseInt(v,10)));var pl=document.getElementById("zoomPill");if(pl)pl.textContent=v+"%";var o=document.getElementById("orgChart");if(o)o.style.transform="scale("+v/100+")";}
-(function(){
-  var wrap=document.getElementById("chartWrap");if(!wrap)return;
-  var isDown=false,sx=0,sy=0,sl=0,st=0,dd=0,drag=false;
-  wrap.addEventListener("mousedown",function(e){if(e.button!==0||e.target.closest("button")||e.target.closest("input")||e.target.closest("select"))return;isDown=true;drag=false;dd=0;wrap.classList.add("dragging");sx=e.clientX;sy=e.clientY;sl=wrap.scrollLeft;st=wrap.scrollTop;});
-  window.addEventListener("mousemove",function(e){if(!isDown)return;var dx=e.clientX-sx,dy=e.clientY-sy;dd=Math.max(dd,Math.abs(dx)+Math.abs(dy));if(dd>3)drag=true;wrap.scrollLeft=sl-dx;wrap.scrollTop=st-dy;});
-  window.addEventListener("mouseup",function(){isDown=false;wrap.classList.remove("dragging");});
-  wrap.addEventListener("click",function(e){if(drag){e.preventDefault();e.stopPropagation();drag=false;}},true);
-  wrap.addEventListener("wheel",function(e){e.preventDefault();var r=document.getElementById("zoomRange");if(!r)return;var z=Math.min(150,Math.max(10,parseInt(r.value||"100",10)+(e.deltaY<0?5:-5)));r.value=z;applyZoom(z);},{passive:false});
-
-  // Touch pan support
-  var tx=0,ty=0,tsl=0,tst=0,tdrag=false,tdd=0;
-  wrap.addEventListener("touchstart",function(e){
-    if(e.touches.length!==1)return;
-    tdrag=false;tdd=0;
-    tx=e.touches[0].clientX; ty=e.touches[0].clientY;
-    tsl=wrap.scrollLeft; tst=wrap.scrollTop;
-  },{passive:true});
-  wrap.addEventListener("touchmove",function(e){
-    if(e.touches.length!==1)return;
-    var dx=e.touches[0].clientX-tx, dy=e.touches[0].clientY-ty;
-    tdd=Math.max(tdd,Math.abs(dx)+Math.abs(dy));
-    if(tdd>5){tdrag=true;e.preventDefault();wrap.scrollLeft=tsl-dx;wrap.scrollTop=tst-dy;}
-  },{passive:false});
-  wrap.addEventListener("touchend",function(){tdrag=false;});
-
-  // Pinch-to-zoom
-  var lastDist=0;
-  wrap.addEventListener("touchstart",function(e){
-    if(e.touches.length===2){
-      lastDist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX, e.touches[0].clientY-e.touches[1].clientY);
-    }
-  },{passive:true});
-  wrap.addEventListener("touchmove",function(e){
-    if(e.touches.length===2){
-      e.preventDefault();
-      var dist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX, e.touches[0].clientY-e.touches[1].clientY);
-      var r=document.getElementById("zoomRange");if(!r)return;
-      var delta=(dist-lastDist)*0.3;
-      lastDist=dist;
-      var z=Math.min(150,Math.max(10,parseInt(r.value||"100",10)+delta));
-      r.value=z;applyZoom(z);
-    }
-  },{passive:false});
-})();
-function initChart(data){
-  currentRoots=buildTree(data);maxDepth=0;
-  currentRoots.forEach(function(r){calcMaxDepth(r,0);});
-  countsMap=computeCounts(currentRoots);
-  var ac=data.filter(function(p){return p.assistente;}).length;
-  var sb=document.getElementById("statusBar");
-  if(sb){sb.innerHTML="";var d1=document.createElement("div");d1.className="stat";var s1=document.createElement("strong");s1.textContent=data.length;d1.appendChild(s1);d1.appendChild(document.createTextNode(" pessoas"));var d2=document.createElement("div");d2.className="stat";var s2=document.createElement("strong");s2.textContent=(data.length-ac);d2.appendChild(s2);d2.appendChild(document.createTextNode(" na hierarquia"));var d3=document.createElement("div");d3.className="tip";d3.textContent="👁️ Modo visualização";sb.appendChild(d1);sb.appendChild(d2);sb.appendChild(d3);}
-
-  var asel=document.getElementById("areaSelect");
-  if(asel){var ns=(currentRoots.length===1&&currentRoots[0].children.length>0)?currentRoots[0].children:currentRoots;ns.forEach(function(n){var o=document.createElement("option");o.value=n.id;o.textContent=n.nome+" ("+(n.cargo||"-")+")";asel.appendChild(o);});}
-  document.getElementById("filtersBar").style.display="";
-  document.getElementById("legendBar").style.display="";
-  document.getElementById("chartWrap").style.display="";
-  drawChart(currentRoots);
-}
-
 function exportViewPDF() {
   var btn = document.getElementById("pdfBtn");
   var areaEl = document.getElementById("areaSelect");
@@ -1099,13 +1035,11 @@ function exportViewPDF() {
   btn.textContent = "⏳ Gerando...";
   btn.disabled = true;
 
-  // Reset zoom para captura perfeita
   var zoomRange = document.getElementById("zoomRange");
   var currentZoom = zoomRange ? parseInt(zoomRange.value) : 100;
   applyZoom(100);
   if(zoomRange) zoomRange.value = "100";
 
-  // Expande tudo antes de capturar
   document.querySelectorAll(".subtree-children").forEach(function(el){
     el.style.display = "";
     if(el._vline) el._vline.style.display = "";
@@ -1127,94 +1061,67 @@ function exportViewPDF() {
       windowWidth: chart.scrollWidth,
       windowHeight: chart.scrollHeight
     }).then(function(canvas){
-      var { jsPDF } = window.jspdf;
+      var jsPDF2 = window.jspdf.jsPDF;
       var imgW = canvas.width;
       var imgH = canvas.height;
       var today = new Date().toLocaleDateString("pt-BR") + "  " + new Date().toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"});
-
-      // Sempre landscape
-      var pdf = new jsPDF({ orientation: "landscape", unit: "pt", format: "a4" });
+      var pdf = new jsPDF2({ orientation: "landscape", unit: "pt", format: "a4" });
       var pageW = pdf.internal.pageSize.getWidth();
       var pageH = pdf.internal.pageSize.getHeight();
       var headerH = 60;
       var margin = 20;
       var footerH = 16;
 
-      function drawHeader(pdf, pageNum, totalPages) {
-        // Fundo branco do header
+      function drawHeader(pageNum, totalPages) {
         pdf.setFillColor(255,255,255);
         pdf.rect(0, 0, pageW, headerH, "F");
-
-        // Texto SGS
         pdf.setFont("helvetica","bold");
         pdf.setFontSize(20);
         pdf.setTextColor(26,26,46);
         pdf.text("SGS", margin, headerH - 18);
-
-        // Linha laranja vertical
         pdf.setDrawColor(255,102,0);
         pdf.setLineWidth(2.5);
         pdf.line(margin + 42, 10, margin + 42, headerH - 8);
-
-        // Título (nome da área)
         pdf.setFont("helvetica","bold");
         pdf.setFontSize(11);
         pdf.setTextColor(255,102,0);
         pdf.text(areaText.toUpperCase(), margin + 52, headerH - 22);
-
-        // Meta direita
         pdf.setFont("helvetica","normal");
         pdf.setFontSize(8);
         pdf.setTextColor(70,70,90);
         pdf.text("Data: " + today, pageW - margin, headerH - 32, {align:"right"});
         pdf.text("Gerado por: Organograma SGS", pageW - margin, headerH - 20, {align:"right"});
-
-        // Linha separadora laranja embaixo do header
         pdf.setDrawColor(255,102,0);
         pdf.setLineWidth(1.5);
         pdf.line(0, headerH, pageW, headerH);
-
-        // Footer
         pdf.setFontSize(7);
         pdf.setTextColor(150,150,150);
         pdf.text("Organograma SGS — Apenas para uso interno", margin, pageH - 5);
-        pdf.text("Pág. " + pageNum + (totalPages > 1 ? " de " + totalPages : ""), pageW - margin, pageH - 5, {align:"right"});
+        pdf.text("Pag. " + pageNum + (totalPages > 1 ? " de " + totalPages : ""), pageW - margin, pageH - 5, {align:"right"});
       }
 
-      // Área disponível para o chart em cada página
       var availW = pageW - margin * 2;
       var availH = pageH - headerH - footerH - margin;
-
-      // Escala para caber na largura
       var scale = availW / (imgW / 2);
       var drawW = availW;
       var drawH = (imgH / 2) * scale;
-
-      // Quantas páginas?
       var totalPages = Math.ceil(drawH / availH);
-
-      // Altura em pixels do canvas por página
       var canvasPageH = Math.ceil((availH / scale) * 2);
 
       for(var p = 0; p < totalPages; p++){
         if(p > 0) pdf.addPage();
-        drawHeader(pdf, p + 1, totalPages);
-
+        drawHeader(p + 1, totalPages);
         var srcY = p * canvasPageH;
         var srcH = Math.min(canvasPageH, imgH - srcY);
-
         var slice = document.createElement("canvas");
         slice.width = imgW;
         slice.height = srcH;
         slice.getContext("2d").drawImage(canvas, 0, srcY, imgW, srcH, 0, 0, imgW, srcH);
-
         var sliceDrawH = (srcH / 2) * scale;
         pdf.addImage(slice.toDataURL("image/png"), "PNG", margin, headerH + 6, drawW, sliceDrawH);
       }
 
       pdf.save("organograma-" + areaText.replace(/[^a-zA-Z0-9]/g,"-").toLowerCase() + ".pdf");
-
-      // Restaura
       applyZoom(currentZoom);
       if(zoomRange) zoomRange.value = currentZoom;
       btn.textContent = "⬇ Baixar PDF";
@@ -1231,14 +1138,44 @@ function exportViewPDF() {
   }, 500);
 }
 
-
+function toggleDark(){document.body.classList.toggle("dark");var b=document.getElementById("darkBtn");if(b)b.textContent=document.body.classList.contains("dark")?"☀️ Modo claro":"🌙 Modo escuro";}
+function applyZoom(v){v=Math.min(150,Math.max(10,parseInt(v,10)));var pl=document.getElementById("zoomPill");if(pl)pl.textContent=v+"%";var o=document.getElementById("orgChart");if(o)o.style.transform="scale("+v/100+")";}
+(function(){
+  var wrap=document.getElementById("chartWrap");if(!wrap)return;
+  var isDown=false,sx=0,sy=0,sl=0,st=0,dd=0,drag=false;
+  wrap.addEventListener("mousedown",function(e){if(e.button!==0||e.target.closest("button")||e.target.closest("input")||e.target.closest("select"))return;isDown=true;drag=false;dd=0;wrap.classList.add("dragging");sx=e.clientX;sy=e.clientY;sl=wrap.scrollLeft;st=wrap.scrollTop;});
+  window.addEventListener("mousemove",function(e){if(!isDown)return;var dx=e.clientX-sx,dy=e.clientY-sy;dd=Math.max(dd,Math.abs(dx)+Math.abs(dy));if(dd>3)drag=true;wrap.scrollLeft=sl-dx;wrap.scrollTop=st-dy;});
+  window.addEventListener("mouseup",function(){isDown=false;wrap.classList.remove("dragging");});
+  wrap.addEventListener("click",function(e){if(drag){e.preventDefault();e.stopPropagation();drag=false;}},true);
+  wrap.addEventListener("wheel",function(e){e.preventDefault();var r=document.getElementById("zoomRange");if(!r)return;var z=Math.min(150,Math.max(10,parseInt(r.value||"100",10)+(e.deltaY<0?5:-5)));r.value=z;applyZoom(z);},{passive:false});
+  var tx=0,ty=0,tsl=0,tst=0,tdd=0;
+  wrap.addEventListener("touchstart",function(e){if(e.touches.length!==1)return;tdd=0;tx=e.touches[0].clientX;ty=e.touches[0].clientY;tsl=wrap.scrollLeft;tst=wrap.scrollTop;},{passive:true});
+  wrap.addEventListener("touchmove",function(e){if(e.touches.length!==1)return;var dx=e.touches[0].clientX-tx,dy=e.touches[0].clientY-ty;tdd=Math.max(tdd,Math.abs(dx)+Math.abs(dy));if(tdd>5){e.preventDefault();wrap.scrollLeft=tsl-dx;wrap.scrollTop=tst-dy;}},{passive:false});
+  var lastDist=0;
+  wrap.addEventListener("touchstart",function(e){if(e.touches.length===2)lastDist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);},{passive:true});
+  wrap.addEventListener("touchmove",function(e){if(e.touches.length===2){e.preventDefault();var dist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);var r=document.getElementById("zoomRange");if(!r)return;var delta=(dist-lastDist)*0.3;lastDist=dist;var z=Math.min(150,Math.max(10,parseInt(r.value||"100",10)+delta));r.value=z;applyZoom(z);}},{passive:false});
+})();
+function initChart(data){
+  currentRoots=buildTree(data);maxDepth=0;
+  currentRoots.forEach(function(r){calcMaxDepth(r,0);});
+  countsMap=computeCounts(currentRoots);
+  var ac=data.filter(function(p){return p.assistente;}).length;
+  var sb=document.getElementById("statusBar");
+  if(sb){sb.innerHTML="";var d1=document.createElement("div");d1.className="stat";var s1=document.createElement("strong");s1.textContent=data.length;d1.appendChild(s1);d1.appendChild(document.createTextNode(" pessoas"));var d2=document.createElement("div");d2.className="stat";var s2=document.createElement("strong");s2.textContent=(data.length-ac);d2.appendChild(s2);d2.appendChild(document.createTextNode(" na hierarquia"));var d3=document.createElement("div");d3.className="tip";d3.textContent="👁️ Modo visualização";sb.appendChild(d1);sb.appendChild(d2);sb.appendChild(d3);}
+  var asel=document.getElementById("areaSelect");
+  if(asel){var ns=(currentRoots.length===1&&currentRoots[0].children.length>0)?currentRoots[0].children:currentRoots;ns.forEach(function(n){var o=document.createElement("option");o.value=n.id;o.textContent=n.nome+" ("+(n.cargo||"-")+")";asel.appendChild(o);});}
+  document.getElementById("filtersBar").style.display="";
+  document.getElementById("legendBar").style.display="";
+  document.getElementById("chartWrap").style.display="";
+  drawChart(currentRoots);
+}
 window.addEventListener("load",function(){
   var data=null;
   if(typeof window.ORG_DATA!=="undefined"&&Array.isArray(window.ORG_DATA)&&window.ORG_DATA.length)data=window.ORG_DATA;
   else if(typeof window.orgData!=="undefined"&&Array.isArray(window.orgData)&&window.orgData.length)data=window.orgData;
   if(data){initChart(data);}else{document.getElementById("statusBar").style.display="none";document.getElementById("errorMsg").style.display="";}
 });
+
 </script>
-<div id="print-footer">Organograma SGS — Apenas para uso interno</div>
 </body>
 </html>

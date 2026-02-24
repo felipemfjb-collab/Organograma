@@ -410,7 +410,7 @@ function computeCounts(roots){
   const m={};
   function walk(n){
     const direct=(n.children?.length||0);
-    let total=direct;
+    let total=0;
     (n.children||[]).forEach(ch=> total += 1 + walk(ch));
     m[n.id]={direct,total};
     return total;
@@ -516,8 +516,13 @@ function renderSubtree(node, depth, parentNode){
 
   const card=document.createElement("div");
   card.className="node" + (depth===0 ? " root" : "");
+  card.dataset.nodeId = node.id;
   card.title = tip;
-  card.innerHTML = `<div class="node-name">${node.nome}</div><div class="node-role">${node.cargo||"—"}</div>`;
+  const nodeCounts = countsMap[node.id] || {direct:0, total:0};
+  const countBadge = (nodeCounts.total > 0)
+    ? `<div class="node-count" title="${nodeCounts.direct} diretos / ${nodeCounts.total} total">👥 ${nodeCounts.total}</div>`
+    : "";
+  card.innerHTML = `<div class="node-name">${node.nome}</div><div class="node-role">${node.cargo||"—"}</div>${countBadge}`;
 
   card.addEventListener("click",(e)=>{
     e.stopPropagation();
@@ -779,7 +784,8 @@ function makeTeamBox(children, teamName){
 
   const header=document.createElement("div");
   header.className="team-box-header";
-  header.textContent = (teamName && String(teamName).trim()) ? String(teamName).trim() : "EQUIPE";
+  const tName = (teamName && String(teamName).trim()) ? String(teamName).trim() : "EQUIPE";
+  header.textContent = tName;
   box.appendChild(header);
 
   const body=document.createElement("div");
@@ -807,27 +813,96 @@ function makeTeamBox(children, teamName){
 /* ============================
    FILTERS
 ============================ */
+// Retorna set de IDs ancestrais de um nó
+function getAncestorIds(targetId, nodes, path){
+  path = path || [];
+  for(var i=0;i<nodes.length;i++){
+    var n = nodes[i];
+    var newPath = path.concat([n.id]);
+    if(n.id === targetId) return newPath;
+    var found = getAncestorIds(targetId, n.children||[], newPath);
+    if(found) return found;
+    // checar assistentes também
+    var foundA = getAncestorIds(targetId, n.assistants||[], newPath);
+    if(foundA) return foundA;
+  }
+  return null;
+}
+
 function applySearch(){
   const inp = document.getElementById("searchInput");
   if(!inp) return;
   const q = inp.value.trim().toLowerCase();
 
   const areaSel = document.getElementById("areaSelect");
-  const levelSel = document.getElementById("levelSelect");
   if(areaSel) areaSel.value="";
-  if(levelSel) levelSel.value="99";
 
+  // Limpa estados anteriores
   document.querySelectorAll(".node").forEach(el=>{
-    el.classList.remove("highlighted","dimmed");
+    el.classList.remove("highlighted","dimmed","ancestor-path");
   });
+  document.querySelectorAll(".team-box").forEach(el=>{
+    el.classList.remove("dimmed-box");
+    el.querySelectorAll(".team-box-member").forEach(m=>{
+      m.classList.remove("highlighted-member","dimmed-member");
+    });
+  });
+
   if(!q) return;
 
+  // Encontra todos os IDs que batem com a busca
+  var matchIds = new Set();
+  // Busca em nodes normais
   document.querySelectorAll(".node").forEach(el=>{
     const name = (el.querySelector(".node-name")||{}).textContent||"";
-    if(name.toLowerCase().includes(q)) el.classList.add("highlighted");
-    else el.classList.add("dimmed");
+    if(stripAccents(name.toLowerCase()).includes(stripAccents(q))){
+      el.classList.add("highlighted");
+      matchIds.add(el.dataset.nodeId);
+    } else {
+      el.classList.add("dimmed");
+    }
   });
-  document.querySelectorAll(".node.highlighted").forEach(el=> el.classList.remove("dimmed"));
+
+  // Busca em team-box members
+  document.querySelectorAll(".team-box-member").forEach(el=>{
+    const name = (el.querySelector(".team-member-name")||el).textContent||"";
+    if(stripAccents(name.toLowerCase()).includes(stripAccents(q))){
+      el.classList.add("highlighted-member");
+      el.classList.remove("dimmed-member");
+      // mostrar a team-box pai
+      var box = el.closest(".team-box");
+      if(box) box.classList.remove("dimmed-box");
+    } else {
+      el.classList.add("dimmed-member");
+    }
+  });
+
+  // Destacar ancestrais dos nós encontrados
+  document.querySelectorAll(".node.highlighted").forEach(el=>{
+    var nid = el.dataset.nodeId;
+    if(!nid) return;
+    var path = getAncestorIds(nid, currentRoots);
+    if(path){
+      path.forEach(function(pid){
+        var pEl = document.querySelector('.node[data-node-id="'+pid+'"]');
+        if(pEl && !pEl.classList.contains("highlighted")){
+          pEl.classList.add("ancestor-path");
+          pEl.classList.remove("dimmed");
+        }
+      });
+    }
+  });
+
+  // Remover dimmed dos highlighted
+  document.querySelectorAll(".node.highlighted, .node.ancestor-path").forEach(el=>{
+    el.classList.remove("dimmed");
+  });
+
+  // Dimmed nas team-boxes que não têm match
+  document.querySelectorAll(".team-box").forEach(el=>{
+    const hasMatch = el.querySelector(".highlighted-member");
+    if(!hasMatch) el.classList.add("dimmed-box");
+  });
 }
 
 function applyAreaFilter(){
